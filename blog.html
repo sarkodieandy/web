@@ -246,6 +246,19 @@
           <p class="lede">Evidence-based guides, practical tips, and real experiences to help you succeed on your GLP-1 journey.</p>
         </div>
 
+        <!-- AI Assistant -->
+        <div class="ai-panel" style="margin-top: 12px;">
+          <div class="ai-badge">AI Assistant (Non-medical)</div>
+          <h3>Ask about GLP-1 tips</h3>
+          <p>Get supportive, non-medical guidance. No dosing, prescriptions, or medical advice.</p>
+          <form class="ai-form" data-output="aiBlogOutput">
+            <textarea placeholder="e.g., Give me 3 gentle breakfast ideas that are protein-forward and low-nausea" required></textarea>
+            <button type="submit">Ask</button>
+          </form>
+          <div class="ai-disclaimer">Educational only. Always follow your clinician.</div>
+          <div class="ai-output" id="aiBlogOutput"></div>
+        </div>
+
         <!-- Category Filters -->
         <div class="blog-filters">
           <button class="filter-btn active" onclick="filterBlog('all', this)">All Articles</button>

@@ -203,6 +203,38 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // AI assistant forms
+  const aiForms = document.querySelectorAll(".ai-form");
+  aiForms.forEach((form) => {
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const textarea = form.querySelector("textarea");
+      const outputId = form.dataset.output;
+      const outputEl = outputId ? document.getElementById(outputId) : form.querySelector(".ai-output");
+      if (!textarea || !outputEl) return;
+      const prompt = textarea.value.trim();
+      if (!prompt) return;
+
+      outputEl.textContent = "Thinking...";
+      outputEl.classList.add("ai-loading");
+
+      try {
+        const resp = await fetch("/.netlify/functions/ai", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ prompt }),
+        });
+        const data = await resp.json();
+        if (!resp.ok) throw new Error(data.error || "AI request failed");
+        outputEl.textContent = data.answer || "No response.";
+      } catch (err) {
+        outputEl.textContent = "Sorry, there was an error. Please try again.";
+      } finally {
+        outputEl.classList.remove("ai-loading");
+      }
+    });
+  });
+
   // Back to top button
   const backBtn = document.createElement("button");
   backBtn.className = "back-to-top";
