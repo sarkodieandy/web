@@ -195,3 +195,49 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
+// Cookie Consent Management
+function showCookieConsent() {
+  const consent = localStorage.getItem('cookieConsent');
+  if (!consent) {
+    setTimeout(() => {
+      document.getElementById('cookieConsent')?.classList.add('show');
+    }, 1000); // Show after 1 second
+  } else if (consent === 'accepted') {
+    loadAdsense();
+  }
+}
+
+function acceptCookies() {
+  localStorage.setItem('cookieConsent', 'accepted');
+  document.getElementById('cookieConsent')?.classList.remove('show');
+  loadAdsense();
+}
+
+function rejectCookies() {
+  localStorage.setItem('cookieConsent', 'rejected');
+  document.getElementById('cookieConsent')?.classList.remove('show');
+  // Don't load personalized ads
+}
+
+function manageCookies() {
+  alert('Cookie preferences: You can accept all cookies for personalized content, or reject non-essential cookies. Essential cookies are always active to ensure site functionality.');
+}
+
+function loadAdsense() {
+  // AdSense is already loaded in the head, this ensures ads are pushed
+  try {
+    if (window.adsbygoogle && window.adsbygoogle.loaded !== true) {
+      (adsbygoogle = window.adsbygoogle || []).push({});
+    }
+  } catch (e) {
+    console.log('AdSense not ready');
+  }
+}
+
+// Show consent banner on page load
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', showCookieConsent);
+} else {
+  showCookieConsent();
+}
+
