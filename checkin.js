@@ -48,7 +48,7 @@
     if (!listEl) return;
     if (!entries.length) {
       listEl.innerHTML =
-        '<p class="tiny" style="color:#6b7280;">No check-ins yet. Add your first entry above.</p>';
+        '<div style="text-align: center; padding: 48px; color: #94a3b8;"><p style="font-size: 1.1rem; margin-bottom: 8px;">📋 No check-ins yet</p><p>Add your first entry above to start tracking patterns.</p></div>';
       return;
     }
 
@@ -59,10 +59,10 @@
         return `
           <div class="timeline-item">
             <div>
-              <p class="eyebrow">${formatDate(e.date)}</p>
-              <h4>${e.weight ? `${e.weight}${e.unit || "kg"}` : "--"} · Hydration ${e.hydration || 0}L · Protein ${e.protein || 0}g</h4>
-              <p class="small">Nausea ${e.nausea || "-"} /5 · Appetite ${e.appetite || "-"} /5</p>
-              ${e.notes ? `<p class="tiny" style="color:#4b5563;margin-top:6px;">${e.notes}</p>` : ""}
+              <p class="eyebrow" style="color: #10b981; font-weight: 600;">${formatDate(e.date)}</p>
+              <h4>${e.weight ? `⚖️ ${e.weight}${e.unit || "kg"}` : "--"} · 💧 ${e.hydration || 0}L · 🥩 ${e.protein || 0}g</h4>
+              <p class="small">🤢 Nausea ${e.nausea || "-"} /5 · 🍽️ Appetite ${e.appetite || "-"} /5</p>
+              ${e.notes ? `<p class="tiny" style="color:#64748b; margin-top:10px; padding: 12px; background: #f8fafc; border-radius: 8px; border-left: 3px solid #10b981;"><strong>Notes:</strong> ${e.notes}</p>` : ""}
             </div>
           </div>
         `;
@@ -182,7 +182,16 @@
     form.reset();
     // keep date today
     dateInput && (dateInput.value = new Date().toISOString().split("T")[0]);
-    alert("Check-in saved!");
+    
+    // Modern success notification
+    const notification = document.createElement('div');
+    notification.style.cssText = 'position: fixed; top: 100px; right: 20px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #fff; padding: 20px 28px; border-radius: 12px; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); z-index: 10000; animation: slideInRight 0.4s ease;';
+    notification.innerHTML = '✅ <strong>Check-in saved!</strong>';
+    document.body.appendChild(notification);
+    setTimeout(() => {
+      notification.style.animation = 'slideOutRight 0.4s ease';
+      setTimeout(() => notification.remove(), 400);
+    }, 2500);
   });
 
   exportBtn?.addEventListener("click", () => {
