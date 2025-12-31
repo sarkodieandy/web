@@ -5,20 +5,22 @@ document.addEventListener("DOMContentLoaded", () => {
   toggle?.addEventListener("click", () => {
     links?.classList.toggle("open");
     toggle.classList.toggle("active");
-    if (links?.style.display === "flex") {
-      links.style.display = "none";
-    } else {
-      links.style.display = "flex";
-      links.style.flexDirection = "column";
-      links.style.gap = "12px";
-      links.style.background = "#0d162b";
-      links.style.position = "absolute";
-      links.style.top = "54px";
-      links.style.left = "0";
-      links.style.padding = "14px 20px";
-      links.style.width = "100%";
-      links.style.borderTop = "1px solid #1f2937";
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener("click", (e) => {
+    if (!toggle?.contains(e.target) && !links?.contains(e.target)) {
+      links?.classList.remove("open");
+      toggle?.classList.remove("active");
     }
+  });
+
+  // Close menu when clicking a link
+  links?.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", () => {
+      links.classList.remove("open");
+      toggle?.classList.remove("active");
+    });
   });
 
   // Simple slider
