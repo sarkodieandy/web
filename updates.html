@@ -46,6 +46,23 @@
   </header>
 
   <main>
+    <!-- AI Assistant -->
+    <section class="section" style="padding-top: 16px; padding-bottom: 0;">
+      <div class="shell">
+        <div class="ai-panel">
+          <div class="ai-badge">AI Assistant (Non-medical)</div>
+          <h3>Ask about GLP-1 updates & playbooks</h3>
+          <p>Get concise, supportive summaries or action lists. No dosing or prescriptions—educational only.</p>
+          <form class="ai-form" data-output="aiUpdatesOutput">
+            <textarea placeholder="e.g., Summarize nausea steps for the first 2 weeks" required></textarea>
+            <button type="submit">Ask</button>
+          </form>
+          <div class="ai-disclaimer">Educational only. Always follow your clinician.</div>
+          <div class="ai-output" id="aiUpdatesOutput"></div>
+        </div>
+      </div>
+    </section>
+
     <section class="hero hero-slider-container" style="position: relative; overflow: hidden; padding: 0; min-height: 500px;">
       <div class="hero-slider">
         <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80');">
@@ -279,6 +296,23 @@
           <li><strong>Bring support:</strong> If possible, have a family member or friend join appointments to help remember details.</li>
           <li><strong>Be honest:</strong> Share what's really happening—skipped doses, struggles with intake, or concerns. Your clinician can only help with accurate information.</li>
         </ul>
+      </div>
+
+      <!-- AI Assistant Panel -->
+      <div class="shell" style="margin-top: 48px;">
+        <div class="ai-panel">
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+            <h3>🤖 Ask about GLP-1 strategies</h3>
+            <span class="ai-badge">✨ AI Assistant</span>
+          </div>
+          <p>Get quick, non-medical guidance on nausea management, hydration, or meal planning.</p>
+          <form class="ai-form">
+            <textarea name="prompt" placeholder="e.g., What's a gentle nausea plan for early mornings?" required></textarea>
+            <button type="submit">Ask AI</button>
+          </form>
+          <div class="ai-output" style="display: none;"></div>
+          <p class="ai-disclaimer" style="margin-top: 8px;">⚠️ Educational only. Not medical advice, dosing, or prescriptions. Consult your clinician.</p>
+        </div>
       </div>
     </section>
   </main>
