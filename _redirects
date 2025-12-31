@@ -1,12 +1,3 @@
-# Cloudflare Pages redirects
-# Clean URLs without .html extension
-/updates /updates.html 200
-/eating /eating.html 200
-/hydration /hydration.html 200
-/muscle /muscle.html 200
-/recipes /recipes.html 200
-
-# Root fallback
-/ /index.html 200
+/* /index.html 200
 
 

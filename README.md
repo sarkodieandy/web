@@ -220,6 +220,34 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 This website provides general information and support for individuals using GLP-1 medications. It is not a substitute for professional medical advice, diagnosis, or treatment. Always seek the advice of your physician or other qualified health provider with any questions you may have regarding a medical condition.
 
+## 🚀 Cloudflare Pages Deployment
+
+This site is optimized for Cloudflare Pages deployment.
+
+### Deploy Settings
+- **Framework preset**: None (static HTML)
+- **Build command**: (leave empty)
+- **Build output directory**: `/` (root)
+
+### Configuration Files
+- `_headers`: Security headers and caching rules
+- `_redirects`: Clean URL routing
+
+### Troubleshooting Navigation Issues
+
+If navigation links aren't working on Cloudflare Pages:
+
+1. **Check Build Settings**: Ensure build output directory is set to `/` (root)
+2. **Clear Cache**: Clear your browser cache or try incognito mode
+3. **Check Deployment**: Verify all `.html` files deployed successfully
+4. **Console Errors**: Open browser DevTools (F12) and check for JavaScript errors
+5. **File Paths**: All links use relative paths (e.g., `updates.html`, not `/updates.html`)
+
+### Live URL
+After deployment, your site will be available at:
+- `https://[your-project-name].pages.dev`
+- Or your custom domain if configured
+
 ## 📧 Contact
 
 For questions or support, please open an issue on GitHub.
@@ -229,6 +257,7 @@ For questions or support, please open an issue on GitHub.
 - Design inspired by Harvard T.H. Chan School of Public Health Nutrition Source
 - Built with accessibility and user experience in mind
 - Community-driven content and feedback
+- Deployed on Cloudflare Pages
 
 ---
 
