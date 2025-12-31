@@ -1,0 +1,12 @@
+# Redirect rules for Cloudflare Pages
+
+# Ensure trailing slashes work correctly
+/updates /updates.html 200
+/eating /eating.html 200
+/hydration /hydration.html 200
+/muscle /muscle.html 200
+/recipes /recipes.html 200
+
+# 404 fallback
+/* /index.html 404
+
