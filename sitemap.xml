@@ -68,6 +68,43 @@
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/first-month-glp1.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/nausea-relief-strategies.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/protein-guide.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/hydration-mistakes.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/muscle-preservation.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://glp-1tracker.netlify.app/blog/meal-prep-guide.html</loc>
+    <lastmod>2025-12-31</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
   
 </urlset>
 
