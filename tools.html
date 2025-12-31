@@ -135,6 +135,7 @@
           <li><a href="recipes.html">Easy Protein</a></li>
           <li><a href="tools.html" class="active">Tools</a></li>
           <li><a href="blog.html">Blog</a></li>
+          <li><a href="checkin.html">Check-in</a></li>
         </ul>
         <button class="nav-toggle" aria-label="Toggle navigation">
           <span></span><span></span><span></span>
@@ -275,6 +276,19 @@
           <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
+        <!-- Lead Magnet -->
+        <div class="lead-magnet" style="margin-top: 12px;">
+          <div>
+            <h3 style="margin: 0;">📧 Get the 7-day nausea-safe meal plan</h3>
+            <p style="margin: 4px 0 0; opacity: 0.9;">Free PDF + weekly GLP-1 tips on hydration, protein pacing, and nausea relief.</p>
+          </div>
+          <form id="toolsEmailForm">
+            <input type="email" name="email" placeholder="you@email.com" required>
+            <button type="submit">Send me the plan</button>
+          </form>
+          <p class="tiny" style="margin: 0; opacity: 0.85;">No spam. Unsubscribe anytime.</p>
+        </div>
+
       </div>
     </section>
   </main>
@@ -290,6 +304,7 @@
         <a href="recipes.html">Easy Protein</a>
         <a href="tools.html">Tools</a>
         <a href="blog.html">Blog</a>
+        <a href="checkin.html">Check-in</a>
       </div>
       <div class="footer-links">
         <a href="#">Privacy</a>
@@ -318,6 +333,14 @@
   </div>
 
   <script src="app.js" defer></script>
+  <script>
+    document.getElementById('toolsEmailForm')?.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = e.target.email.value;
+      alert(`Thanks! We'll email the 7-day plan to ${email}.`);
+      e.target.reset();
+    });
+  </script>
   <script src="tools.js" defer></script>
 </body>
 </html>

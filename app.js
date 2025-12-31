@@ -125,12 +125,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Search routing
   const searchForms = document.querySelectorAll("form.search");
   const routes = [
-    { keys: ["update", "news"], url: "updates.html" },
-    { keys: ["eat", "nausea", "meal", "food"], url: "eating.html" },
-    { keys: ["hydration", "water", "drink", "ors"], url: "hydration.html" },
-    { keys: ["muscle", "strength", "metabolic", "protein"], url: "muscle.html" },
-    { keys: ["recipe", "protein", "cook", "meal prep"], url: "recipes.html" },
-    { keys: ["home", "main"], url: "index.html" }
+    { label: "Home", keys: ["home", "main"], url: "index.html" },
+    { label: "GLP-1 Updates", keys: ["update", "news", "playbook"], url: "updates.html" },
+    { label: "Nausea-Smart Eating", keys: ["eat", "nausea", "meal", "food"], url: "eating.html" },
+    { label: "Hydration", keys: ["hydration", "water", "drink", "ors"], url: "hydration.html" },
+    { label: "Muscle & Metabolic", keys: ["muscle", "strength", "metabolic", "protein"], url: "muscle.html" },
+    { label: "Easy Protein Recipes", keys: ["recipe", "protein", "cook", "meal prep"], url: "recipes.html" },
+    { label: "Tools & Calculators", keys: ["tool", "calculator", "protein calculator", "hydration calculator"], url: "tools.html" },
+    { label: "Blog", keys: ["blog", "article", "tips", "guide"], url: "blog.html" },
+    { label: "Daily Check-in", keys: ["check", "log", "track", "trend"], url: "checkin.html" },
   ];
 
   function findRoute(query) {
@@ -141,17 +144,61 @@ document.addEventListener("DOMContentLoaded", () => {
     return null;
   }
 
+  function buildSuggestions(form) {
+    const container = document.createElement("div");
+    container.className = "search-suggestions";
+    container.style.display = "none";
+    form.appendChild(container);
+    return container;
+  }
+
+  function updateSuggestions(container, query) {
+    if (!query) {
+      container.style.display = "none";
+      container.innerHTML = "";
+      return;
+    }
+    const q = query.toLowerCase();
+    const matches = routes.filter((r) => r.keys.some((k) => k.includes(q) || q.includes(k)));
+    if (!matches.length) {
+      container.style.display = "none";
+      container.innerHTML = "";
+      return;
+    }
+    container.innerHTML = matches
+      .slice(0, 6)
+      .map((m) => `<button type="button" data-url="${m.url}">${m.label}</button>`)
+      .join("");
+    container.style.display = "block";
+  }
+
   searchForms.forEach((form) => {
+    const input = form.querySelector("input[type='search']");
+    const suggestions = buildSuggestions(form);
+
     form.addEventListener("submit", (e) => {
       e.preventDefault();
-      const input = form.querySelector("input[type='search']");
       const value = input?.value?.trim() || "";
       if (!value) return;
       const target = findRoute(value);
       if (target) {
         window.location.href = target;
       } else {
-        alert("No matching section found. Try: updates, nausea, hydration, muscle, recipes.");
+        alert("No matching section found. Try: updates, nausea, hydration, muscle, recipes, tools, blog, check-in.");
+      }
+    });
+
+    input?.addEventListener("input", () => updateSuggestions(suggestions, input.value));
+
+    suggestions.addEventListener("click", (e) => {
+      const btn = e.target.closest("button");
+      if (!btn) return;
+      window.location.href = btn.dataset.url;
+    });
+
+    document.addEventListener("click", (e) => {
+      if (!form.contains(e.target)) {
+        suggestions.style.display = "none";
       }
     });
   });
