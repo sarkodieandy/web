@@ -44,10 +44,41 @@ python -m http.server 8000
 
 This is a static website that can be deployed to:
 
-- **GitHub Pages** (recommended)
+- **Cloudflare Pages** (recommended - fast, free, global CDN)
+- **GitHub Pages**
 - **Netlify**
 - **Vercel**
 - **Any static hosting service**
+
+#### Cloudflare Pages Deployment (Recommended)
+
+**Option 1: Via Cloudflare Dashboard (Easiest)**
+
+1. Push your code to GitHub (see instructions below)
+2. Go to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+3. Click **Workers & Pages** → **Create application** → **Pages** → **Connect to Git**
+4. Select your GitHub repository
+5. Configure build settings:
+   - **Project name**: `glp1-care-companion`
+   - **Production branch**: `main`
+   - **Build command**: Leave empty (no build needed)
+   - **Build output directory**: `/` (root)
+6. Click **Save and Deploy**
+
+Your site will be live at: `https://glp1-care-companion.pages.dev`
+
+**Option 2: Via Wrangler CLI**
+
+```bash
+# Install Wrangler globally (one time)
+npm install -g wrangler
+
+# Login to Cloudflare
+wrangler login
+
+# Deploy directly from your local directory
+npx wrangler pages deploy . --project-name=glp1-care-companion
+```
 
 #### GitHub Pages Deployment
 
