@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Free GLP-1 Calculators & Tools | Protein, Hydration & Meal Planners</title>
+  
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Free interactive GLP-1 tools: protein calculator, hydration tracker, meal timing planner for Ozempic, Wegovy & Mounjaro users." />
+  <meta name="keywords" content="GLP-1 calculator, protein calculator, hydration tracker, meal planner, Ozempic tools, Wegovy calculator" />
+  <link rel="canonical" href="https://glp-1tracker.netlify.app/tools.html" />
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    .tool-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 32px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+    
+    .tool-card h3 {
+      color: #10b981;
+      margin-bottom: 16px;
+      font-size: 1.5rem;
+    }
+    
+    .input-group {
+      margin-bottom: 20px;
+    }
+    
+    .input-group label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #1f2937;
+    }
+    
+    .input-group input,
+    .input-group select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #cbd5e0;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+    }
+    
+    .input-group input:focus,
+    .input-group select:focus {
+      outline: none;
+      border-color: #10b981;
+      box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+    }
+    
+    .calc-btn {
+      background: #10b981;
+      color: #fff;
+      padding: 14px 32px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    
+    .calc-btn:hover {
+      background: #059669;
+      transform: translateY(-2px);
+    }
+    
+    .result-box {
+      background: #d1fae5;
+      border: 2px solid #10b981;
+      border-radius: 8px;
+      padding: 20px;
+      margin-top: 24px;
+      display: none;
+    }
+    
+    .result-box.show {
+      display: block;
+      animation: fadeIn 0.3s ease;
+    }
+    
+    .result-box h4 {
+      color: #065f46;
+      margin-bottom: 12px;
+    }
+    
+    .result-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #10b981;
+      margin: 8px 0;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-row">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <div>
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
+        </div>
+      </div>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="nav">
+      <div class="shell nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">GLP-1 Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart Eating</a></li>
+          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="muscle.html">Muscle & Metabolic</a></li>
+          <li><a href="recipes.html">Easy Protein</a></li>
+          <li><a href="tools.html" class="active">Tools</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Interactive calculators</p>
+          <h1>GLP-1 Support Tools</h1>
+          <p class="lede">Free calculators and planners to help you stay on track with protein, hydration, and meal timing.</p>
+        </div>
+
+        <!-- Protein Calculator -->
+        <div class="tool-card">
+          <h3>💪 Daily Protein Calculator</h3>
+          <p>Calculate your optimal daily protein intake based on your weight and activity level.</p>
+          
+          <div class="input-group">
+            <label for="weight">Your Weight</label>
+            <input type="number" id="weight" placeholder="70" min="30" max="300">
+          </div>
+          
+          <div class="input-group">
+            <label for="weightUnit">Weight Unit</label>
+            <select id="weightUnit">
+              <option value="kg">Kilograms (kg)</option>
+              <option value="lbs">Pounds (lbs)</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="activity">Activity Level</label>
+            <select id="activity">
+              <option value="1.2">Sedentary (little/no exercise)</option>
+              <option value="1.4">Lightly active (light exercise 1-3 days/week)</option>
+              <option value="1.6" selected>Moderately active (moderate exercise 3-5 days/week)</option>
+              <option value="1.8">Very active (hard exercise 6-7 days/week)</option>
+            </select>
+          </div>
+          
+          <button class="calc-btn" onclick="calculateProtein()">Calculate Protein Need</button>
+          
+          <div class="result-box" id="proteinResult">
+            <h4>Your Daily Protein Target:</h4>
+            <div class="result-value" id="proteinValue"></div>
+            <p id="proteinDetails"></p>
+            <p style="margin-top: 12px; font-size: 0.9rem; color: #065f46;">
+              <strong>Pro Tip:</strong> Spread this across 4-6 small meals (20-30g per meal) to minimize nausea on GLP-1 medications.
+            </p>
+          </div>
+        </div>
+
+        <!-- Hydration Calculator -->
+        <div class="tool-card">
+          <h3>💧 Daily Hydration Calculator</h3>
+          <p>Calculate your minimum daily water intake based on body weight and activity.</p>
+          
+          <div class="input-group">
+            <label for="hydrationWeight">Your Weight</label>
+            <input type="number" id="hydrationWeight" placeholder="70" min="30" max="300">
+          </div>
+          
+          <div class="input-group">
+            <label for="hydrationUnit">Weight Unit</label>
+            <select id="hydrationUnit">
+              <option value="kg">Kilograms (kg)</option>
+              <option value="lbs">Pounds (lbs)</option>
+            </select>
+          </div>
+          
+          <div class="input-group">
+            <label for="hydrationActivity">Exercise Today?</label>
+            <select id="hydrationActivity">
+              <option value="0">No exercise</option>
+              <option value="500">Light exercise (< 30 min)</option>
+              <option value="750">Moderate exercise (30-60 min)</option>
+              <option value="1000">Intense exercise (> 60 min)</option>
+            </select>
+          </div>
+          
+          <button class="calc-btn" onclick="calculateHydration()">Calculate Water Need</button>
+          
+          <div class="result-box" id="hydrationResult">
+            <h4>Your Daily Water Target:</h4>
+            <div class="result-value" id="hydrationValue"></div>
+            <p id="hydrationDetails"></p>
+            <p style="margin-top: 12px; font-size: 0.9rem; color: #065f46;">
+              <strong>GLP-1 Tip:</strong> Sip slowly throughout the day. Avoid large amounts at once to prevent nausea.
+            </p>
+          </div>
+        </div>
+
+        <!-- Meal Timing Planner -->
+        <div class="tool-card">
+          <h3>⏰ Meal Timing Planner</h3>
+          <p>Plan your ideal meal schedule to minimize nausea and maintain energy.</p>
+          
+          <div class="input-group">
+            <label for="wakeTime">What time do you wake up?</label>
+            <input type="time" id="wakeTime" value="07:00">
+          </div>
+          
+          <div class="input-group">
+            <label for="sleepTime">What time do you go to bed?</label>
+            <input type="time" id="sleepTime" value="22:00">
+          </div>
+          
+          <div class="input-group">
+            <label for="mealCount">How many meals per day?</label>
+            <select id="mealCount">
+              <option value="4">4 meals (recommended for GLP-1)</option>
+              <option value="5" selected>5 meals (better for nausea)</option>
+              <option value="6">6 meals (maximum frequency)</option>
+            </select>
+          </div>
+          
+          <button class="calc-btn" onclick="planMeals()">Generate Meal Schedule</button>
+          
+          <div class="result-box" id="mealResult">
+            <h4>Your Personalized Meal Schedule:</h4>
+            <div id="mealSchedule"></div>
+          </div>
+        </div>
+
+        <!-- Ad Slot -->
+        <div class="ad-slot" aria-label="Advertisement" style="margin: 40px 0;">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5462334042904965"
+               data-ad-slot="1234567890"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="updates.html">Updates</a>
+        <a href="eating.html">Nausea-Smart Eating</a>
+        <a href="hydration.html">Hydration</a>
+        <a href="muscle.html">Muscle & Metabolic</a>
+        <a href="recipes.html">Easy Protein</a>
+        <a href="tools.html">Tools</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="shell footer-note">
+      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician for medical guidance, dosing, or medication questions.</p>
+    </div>
+  </footer>
+
+  <!-- Cookie Consent Banner -->
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent-content">
+      <div class="cookie-consent-text">
+        <h4>🍪 We value your privacy</h4>
+        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#" onclick="return false;">Learn more</a></p>
+      </div>
+      <div class="cookie-consent-buttons">
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject Non-Essential</button>
+        <button class="cookie-btn cookie-btn-manage" onclick="manageCookies()">Manage Options</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+  <script src="tools.js" defer></script>
+</body>
+</html>
+

@@ -241,3 +241,41 @@ if (document.readyState === 'loading') {
   showCookieConsent();
 }
 
+// Register Service Worker for PWA
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('/sw.js')
+      .then((registration) => {
+        console.log('ServiceWorker registered:', registration.scope);
+      })
+      .catch((error) => {
+        console.log('ServiceWorker registration failed:', error);
+      });
+  });
+}
+
+// Social Sharing Function
+function shareArticle(title, url) {
+  if (navigator.share) {
+    navigator.share({
+      title: title || 'GLP-1 Care Companion',
+      text: 'Check out this helpful GLP-1 resource!',
+      url: url || window.location.href
+    }).catch((error) => console.log('Error sharing:', error));
+  } else {
+    // Fallback: copy URL to clipboard
+    navigator.clipboard.writeText(url || window.location.href);
+    alert('Link copied to clipboard!');
+  }
+}
+
+// Install PWA prompt
+let deferredPrompt;
+window.addEventListener('beforeinstallprompt', (e) => {
+  e.preventDefault();
+  deferredPrompt = e;
+  // Show install button if you want
+  console.log('PWA install available');
+});
+
+
