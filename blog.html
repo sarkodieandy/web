@@ -20,58 +20,95 @@
     .blog-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-      gap: 28px;
-      margin-top: 40px;
+      gap: 32px;
+      margin-top: 48px;
     }
     
     .blog-card {
       background: #fff;
       border: 1px solid #e2e8f0;
-      border-radius: 12px;
+      border-radius: 16px;
       overflow: hidden;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
+      text-decoration: none;
+      display: block;
+      position: relative;
+    }
+    
+    .blog-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(16, 185, 129, 0.05) 0%, rgba(5, 150, 105, 0.05) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 1;
     }
     
     .blog-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
+      border-color: #10b981;
+    }
+    
+    .blog-card:hover::before {
+      opacity: 1;
     }
     
     .blog-card-image {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
-      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      transition: transform 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .blog-card:hover .blog-card-image {
+      transform: scale(1.05);
     }
     
     .blog-card-content {
-      padding: 24px;
+      padding: 28px;
+      position: relative;
+      z-index: 2;
     }
     
     .blog-category {
       display: inline-block;
-      background: #d1fae5;
+      background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
       color: #065f46;
-      padding: 4px 12px;
-      border-radius: 12px;
+      padding: 6px 14px;
+      border-radius: 20px;
       font-size: 0.75rem;
-      font-weight: 600;
-      margin-bottom: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
     }
     
     .blog-card h3 {
       color: #1f2937;
-      font-size: 1.25rem;
-      margin-bottom: 12px;
+      font-size: 1.35rem;
+      margin-bottom: 14px;
       line-height: 1.4;
+      font-weight: 700;
+      transition: color 0.3s ease;
+    }
+    
+    .blog-card:hover h3 {
+      color: #10b981;
     }
     
     .blog-excerpt {
       color: #6b7280;
       font-size: 0.95rem;
-      line-height: 1.6;
-      margin-bottom: 16px;
+      line-height: 1.7;
+      margin-bottom: 18px;
     }
     
     .blog-meta {
@@ -80,17 +117,87 @@
       gap: 16px;
       font-size: 0.85rem;
       color: #9ca3af;
+      padding-top: 16px;
+      border-top: 1px solid #f3f4f6;
     }
     
     .read-time {
       display: flex;
       align-items: center;
-      gap: 4px;
+      gap: 6px;
+    }
+    
+    .read-more {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #10b981;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 12px;
+      transition: gap 0.3s ease;
+    }
+    
+    .blog-card:hover .read-more {
+      gap: 12px;
+    }
+    
+    .read-more::after {
+      content: '→';
+      font-size: 1.2rem;
+    }
+    
+    /* Filter/Category Tabs */
+    .blog-filters {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 32px;
+      padding: 24px 0;
+      border-bottom: 2px solid #f3f4f6;
+    }
+    
+    .filter-btn {
+      padding: 10px 20px;
+      border: 2px solid #e2e8f0;
+      background: #fff;
+      color: #6b7280;
+      border-radius: 24px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-size: 0.9rem;
+    }
+    
+    .filter-btn:hover {
+      border-color: #10b981;
+      color: #10b981;
+      background: #f0fdf4;
+    }
+    
+    .filter-btn.active {
+      background: #10b981;
+      color: #fff;
+      border-color: #10b981;
     }
     
     @media (max-width: 768px) {
       .blog-grid {
         grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      
+      .blog-card-image {
+        height: 180px;
+      }
+      
+      .blog-filters {
+        gap: 8px;
+      }
+      
+      .filter-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
       }
     }
   </style>
@@ -138,91 +245,107 @@
           <p class="lede">Evidence-based guides, practical tips, and real experiences to help you succeed on your GLP-1 journey.</p>
         </div>
 
+        <!-- Category Filters -->
+        <div class="blog-filters">
+          <button class="filter-btn active" onclick="filterBlog('all')">All Articles</button>
+          <button class="filter-btn" onclick="filterBlog('getting-started')">Getting Started</button>
+          <button class="filter-btn" onclick="filterBlog('side-effects')">Side Effects</button>
+          <button class="filter-btn" onclick="filterBlog('nutrition')">Nutrition</button>
+          <button class="filter-btn" onclick="filterBlog('exercise')">Exercise</button>
+          <button class="filter-btn" onclick="filterBlog('meal-prep')">Meal Prep</button>
+        </div>
+
         <div class="blog-grid">
           
           <!-- Blog Post 1 -->
-          <article class="blog-card" onclick="window.location.href='blog/first-month-glp1.html'">
+          <a href="#" class="blog-card" data-category="getting-started">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1505576399279-565b52d4ac71?auto=format&fit=crop&w=600&q=80" alt="First month on GLP-1" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Getting Started</span>
               <h3>What to Expect in Your First Month on GLP-1 Medications</h3>
               <p class="blog-excerpt">Complete guide to the first 4 weeks: common side effects, how to manage nausea, when to eat, and what results to expect.</p>
               <div class="blog-meta">
-                <span>Dec 31, 2025</span>
-                <span class="read-time">📖 8 min read</span>
+                <span>📅 Dec 31, 2025</span>
+                <span class="read-time">⏱️ 8 min read</span>
               </div>
+              <span class="read-more">Read full article</span>
             </div>
-          </article>
+          </a>
 
           <!-- Blog Post 2 -->
-          <article class="blog-card" onclick="window.location.href='blog/nausea-relief-strategies.html'">
+          <a href="#" class="blog-card" data-category="side-effects">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&w=600&q=80" alt="Nausea relief" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Side Effects</span>
               <h3>10 Evidence-Based Strategies to Reduce GLP-1 Nausea</h3>
               <p class="blog-excerpt">Proven methods to minimize nausea: meal timing, food texture, ginger tea, and when to call your doctor.</p>
               <div class="blog-meta">
-                <span>Dec 30, 2025</span>
-                <span class="read-time">📖 6 min read</span>
+                <span>📅 Dec 30, 2025</span>
+                <span class="read-time">⏱️ 6 min read</span>
               </div>
+              <span class="read-more">Read full article</span>
             </div>
-          </article>
+          </a>
 
           <!-- Blog Post 3 -->
-          <article class="blog-card" onclick="window.location.href='blog/protein-guide.html'">
+          <a href="#" class="blog-card" data-category="nutrition">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1532550907401-a500c9a57435?auto=format&fit=crop&w=600&q=80" alt="Protein sources" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Nutrition</span>
               <h3>The Ultimate Protein Guide for GLP-1 Users</h3>
               <p class="blog-excerpt">How much protein you need, best sources, timing strategies, and easy high-protein meals that won't trigger nausea.</p>
               <div class="blog-meta">
-                <span>Dec 29, 2025</span>
-                <span class="read-time">📖 10 min read</span>
+                <span>📅 Dec 29, 2025</span>
+                <span class="read-time">⏱️ 10 min read</span>
               </div>
+              <span class="read-more">Read full article</span>
             </div>
-          </article>
+          </a>
 
           <!-- Blog Post 4 -->
-          <article class="blog-card" onclick="window.location.href='blog/hydration-mistakes.html'">
+          <a href="#" class="blog-card" data-category="side-effects">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=600&q=80" alt="Hydration tips" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Hydration</span>
               <h3>5 Common Hydration Mistakes on GLP-1 (And How to Fix Them)</h3>
               <p class="blog-excerpt">Avoid dehydration, electrolyte imbalances, and related side effects with these simple hydration strategies.</p>
               <div class="blog-meta">
-                <span>Dec 28, 2025</span>
-                <span class="read-time">📖 5 min read</span>
+                <span>📅 Dec 28, 2025</span>
+                <span class="read-time">⏱️ 5 min read</span>
               </div>
+              <span class="read-more">Read full article</span>
             </div>
-          </article>
+          </a>
 
           <!-- Blog Post 5 -->
-          <article class="blog-card" onclick="window.location.href='blog/muscle-preservation.html'">
+          <a href="#" class="blog-card" data-category="exercise">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?auto=format&fit=crop&w=600&q=80" alt="Exercise and muscle" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Exercise</span>
               <h3>How to Preserve Muscle While on GLP-1 Medications</h3>
               <p class="blog-excerpt">Resistance training guide, protein timing, and recovery strategies to maintain strength during weight loss.</p>
               <div class="blog-meta">
-                <span>Dec 27, 2025</span>
-                <span class="read-time">📖 9 min read</span>
+                <span>📅 Dec 27, 2025</span>
+                <span class="read-time">⏱️ 9 min read</span>
               </div>
+              <span class="read-more">Read full article</span>
             </div>
-          </article>
+          </a>
 
           <!-- Blog Post 6 -->
-          <article class="blog-card" onclick="window.location.href='blog/meal-prep-guide.html'">
+          <a href="#" class="blog-card" data-category="meal-prep">
             <img class="blog-card-image" src="https://images.unsplash.com/photo-1498837167922-ddd27525d352?auto=format&fit=crop&w=600&q=80" alt="Meal prep" loading="lazy">
             <div class="blog-card-content">
               <span class="blog-category">Meal Prep</span>
               <h3>Weekly Meal Prep for GLP-1 Users: Complete Guide</h3>
               <p class="blog-excerpt">Step-by-step meal prep system: shopping lists, batch cooking recipes, and storage tips for the entire week.</p>
               <div class="blog-meta">
-                <span>Dec 26, 2025</span>
-                <span class="read-time">📖 12 min read</span>
+                <span>📅 Dec 26, 2025</span>
+                <span class="read-time">⏱️ 12 min read</span>
               </div>
-          </div>
-          </article>
+              <span class="read-more">Read full article</span>
+            </div>
+          </a>
 
         </div>
 
@@ -298,6 +421,57 @@
       const email = this.querySelector('input[type="email"]').value;
       alert(`Thanks for subscribing! We'll send weekly tips to ${email}`);
       this.reset();
+    });
+    
+    // Blog filter functionality
+    function filterBlog(category) {
+      const cards = document.querySelectorAll('.blog-card');
+      const buttons = document.querySelectorAll('.filter-btn');
+      
+      // Update active button
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      // Filter cards
+      cards.forEach(card => {
+        if (category === 'all') {
+          card.style.display = 'block';
+          setTimeout(() => {
+            card.style.opacity = '1';
+            card.style.transform = 'translateY(0)';
+          }, 10);
+        } else {
+          const cardCategory = card.getAttribute('data-category');
+          if (cardCategory === category) {
+            card.style.display = 'block';
+            setTimeout(() => {
+              card.style.opacity = '1';
+              card.style.transform = 'translateY(0)';
+            }, 10);
+          } else {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            setTimeout(() => {
+              card.style.display = 'none';
+            }, 300);
+          }
+        }
+      });
+    }
+    
+    // Initialize cards with animation
+    document.addEventListener('DOMContentLoaded', () => {
+      const cards = document.querySelectorAll('.blog-card');
+      cards.forEach((card, index) => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        
+        setTimeout(() => {
+          card.style.opacity = '1';
+          card.style.transform = 'translateY(0)';
+        }, 100 * index);
+      });
     });
   </script>
 </body>
