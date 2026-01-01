@@ -263,3 +263,4 @@ For questions or support, please open an issue on GitHub.
 
 **Made with ❤️ for the GLP-1 community**
 
+# GLP-1 Care Companion
