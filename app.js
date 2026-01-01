@@ -27,15 +27,42 @@ function manageCookies() {
 }
 
 function loadAdsense() {
-  // AdSense is already loaded in the head, this ensures ads are pushed
+  // Initialize all AdSense ads on the page
   try {
-    if (window.adsbygoogle && window.adsbygoogle.loaded !== true) {
-      (adsbygoogle = window.adsbygoogle || []).push({});
+    // Wait for adsbygoogle script to be available
+    if (typeof adsbygoogle !== 'undefined') {
+      // Push all ad units
+      const adUnits = document.querySelectorAll('.adsbygoogle');
+      adUnits.forEach((adUnit) => {
+        try {
+          (adsbygoogle = window.adsbygoogle || []).push({});
+        } catch (e) {
+          console.log('AdSense push error:', e);
+        }
+      });
+    } else {
+      // If script not loaded yet, wait and retry
+      setTimeout(loadAdsense, 100);
     }
   } catch (e) {
-    console.log('AdSense not ready');
+    console.log('AdSense initialization error:', e);
   }
 }
+
+// Initialize ads when page loads
+function initAds() {
+  // Wait for DOM and AdSense script
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(loadAdsense, 500);
+    });
+  } else {
+    setTimeout(loadAdsense, 500);
+  }
+}
+
+// Start ad initialization
+initAds();
 
 // Show consent banner on page load
 if (document.readyState === 'loading') {
