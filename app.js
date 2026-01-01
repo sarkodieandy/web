@@ -55,9 +55,37 @@ function initAds() {
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', () => {
       setTimeout(loadAdsense, 500);
+      handleAnchorAd();
     });
   } else {
     setTimeout(loadAdsense, 500);
+    handleAnchorAd();
+  }
+}
+
+// Handle anchor ad visibility and body padding
+function handleAnchorAd() {
+  const anchorAd = document.querySelector('.ad-anchor');
+  if (anchorAd) {
+    // Check if ad is loaded and visible
+    const observer = new MutationObserver(() => {
+      const adContent = anchorAd.querySelector('ins iframe, ins > div');
+      if (adContent && adContent.offsetHeight > 0) {
+        document.body.classList.add('has-anchor-ad');
+      } else {
+        document.body.classList.remove('has-anchor-ad');
+      }
+    });
+    
+    observer.observe(anchorAd, { childList: true, subtree: true });
+    
+    // Also check after a delay for async loading
+    setTimeout(() => {
+      const adContent = anchorAd.querySelector('ins iframe, ins > div');
+      if (adContent && adContent.offsetHeight > 0) {
+        document.body.classList.add('has-anchor-ad');
+      }
+    }, 2000);
   }
 }
 
