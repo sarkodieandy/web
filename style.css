@@ -1449,6 +1449,77 @@ img[loading="lazy"].loaded {
   }
 }
 
+/* AdSense Ad Container Styling */
+.ad-container {
+  width: 100%;
+  margin: 40px 0;
+  padding: 20px 0;
+  text-align: center;
+  clear: both;
+  overflow: hidden;
+}
+
+.ad-container.display {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.ad-container.in-article {
+  margin: 40px auto;
+  padding: 20px 0;
+  max-width: 100%;
+  text-align: center;
+}
+
+/* Ensure ads don't break layout */
+.adsbygoogle {
+  display: block !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Ad wrapper for proper spacing */
+.ad-wrapper {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  margin: 40px 0;
+  text-align: center;
+}
+
+.ad-wrapper.in-article {
+  background: transparent;
+  border: none;
+  padding: 20px 0;
+  margin: 40px 0;
+}
+
+/* Mobile responsive ads */
+@media (max-width: 768px) {
+  .ad-container {
+    margin: 30px 0;
+    padding: 15px 0;
+  }
+  
+  .ad-wrapper {
+    padding: 15px;
+    margin: 30px 0;
+  }
+  
+  .ad-container.display {
+    padding: 0 16px;
+  }
+}
+
+/* Prevent ad overflow */
+.adsbygoogle ins {
+  display: block !important;
+  margin: 0 auto;
+  text-align: center;
+}
+
 /* Social Share Button */
 .share-btn {
   display: inline-flex;
