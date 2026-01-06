@@ -24,6 +24,9 @@
     <main class="shell">
         <section class="scanner-container">
             <div class="camera-preview" id="cameraPreview">
+                <video id="videoFeed" autoplay playsinline muted
+                    style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <canvas id="captureCanvas" style="display: none;"></canvas>
                 <div class="scanner-overlay"></div>
                 <div class="instruction">Point at your meal or upload a photo</div>
                 <input type="file" id="imageUpload" accept="image/*" style="display: none;">
@@ -31,9 +34,11 @@
 
             <div class="scanner-actions">
                 <button class="btn-primary" id="captureBtn">Take Photo</button>
+                <button class="btn-ghost" id="uploadBtn">Upload</button>
                 <input type="file" id="uploadInput" accept="image/*" style="display: none;">
-                <p class="muted small" style="margin-top: 15px;">Or upload a photo from your gallery</p>
             </div>
+            <p class="muted small" style="text-align: center; margin-top: 10px;">Daily free scans allow you to focus on
+                lifestyle patterns.</p>
 
             <div id="scannerResult" class="card result-card" style="display: none;">
                 <div class="ai-badge">AI Identification</div>
@@ -197,16 +202,35 @@
         import AIService from './ai-service.js';
 
         const captureBtn = document.getElementById('captureBtn');
+        const uploadBtn = document.getElementById('uploadBtn');
         const uploadInput = document.getElementById('uploadInput');
-        const resultCard = document.getElementById('resultCard');
+        const video = document.getElementById('videoFeed');
+        const canvas = document.getElementById('captureCanvas');
+        const resultCard = document.getElementById('scannerResult');
         const foodName = document.getElementById('foodName');
         const foodDesc = document.getElementById('foodDesc');
         const lifestyleNote = document.getElementById('lifestyleNote');
         const similarList = document.getElementById('similarList');
 
+        // Initialize Camera
+        async function initCamera() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment' },
+                    audio: false
+                });
+                video.srcObject = stream;
+            } catch (err) {
+                console.error("Camera access denied:", err);
+                document.querySelector('.instruction').textContent = "Camera access denied. Please use the upload button.";
+            }
+        }
+
+        initCamera();
+
         const updateLimitUI = () => {
             const { remaining } = AIService.checkScanLimit();
-            captureBtn.innerHTML = `Take Photo <small style="display:block; opacity:0.7;">${remaining} free scans left today</small>`;
+            captureBtn.innerHTML = `Capture <small style="display:block; opacity:0.7;">${remaining} left</small>`;
             if (remaining <= 0) {
                 captureBtn.disabled = true;
                 captureBtn.style.opacity = '0.5';
@@ -251,19 +275,27 @@
                 AIService.incrementScanCount();
                 updateLimitUI();
             } catch (error) {
-                alert("Something went wrong with the scan. Please try a different photo.");
+                alert("Something went wrong with the scan. Please try again.");
                 console.error(error);
             } finally {
                 captureBtn.disabled = false;
+                updateLimitUI();
             }
         };
 
         captureBtn.addEventListener('click', () => {
-            // Since we can't trigger a real camera in some environments,
-            // we'll trigger the file upload instead.
-            uploadInput.click();
+            if (video.srcObject) {
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0);
+                const base64 = canvas.toDataURL('image/jpeg');
+                performAnalysis(base64);
+            } else {
+                uploadInput.click();
+            }
         });
 
+        uploadBtn.addEventListener('click', () => uploadInput.click());
         uploadInput.addEventListener('change', processUpload);
     </script>
 </body>

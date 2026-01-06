@@ -2,77 +2,104 @@
 <section class="comments-section" style="margin-top: 60px; padding: 40px 0; border-top: 2px solid #e2e8f0;">
   <div class="shell">
     <h3 style="margin-bottom: 24px;">💬 Join the Discussion</h3>
-    
+
     <!-- Comment Form -->
     <div class="comment-form" style="background: #f9fafb; padding: 24px; border-radius: 12px; margin-bottom: 40px;">
       <form id="commentForm">
         <div style="margin-bottom: 16px;">
           <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #1f2937;">Your Comment</label>
-          <textarea 
-            name="comment" 
-            rows="4" 
-            required
-            placeholder="Share your experience or ask a question..."
-            style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"
-          ></textarea>
+          <textarea name="comment" rows="4" required placeholder="Share your experience or ask a question..."
+            style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem; resize: vertical;"></textarea>
         </div>
-        
+
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px;">
           <div>
             <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #1f2937;">Name</label>
-            <input 
-              type="text" 
-              name="name" 
-              required
-              placeholder="Your name"
-              style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem;"
-            />
+            <input type="text" name="name" required placeholder="Your name"
+              style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem;" />
           </div>
           <div>
-            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #1f2937;">Email (not published)</label>
-            <input 
-              type="email" 
-              name="email" 
-              required
-              placeholder="your@email.com"
-              style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem;"
-            />
+            <label style="display: block; font-weight: 600; margin-bottom: 8px; color: #1f2937;">Email (not
+              published)</label>
+            <input type="email" name="email" required placeholder="your@email.com"
+              style="width: 100%; padding: 12px; border: 1px solid #cbd5e0; border-radius: 6px; font-family: inherit; font-size: 1rem;" />
           </div>
         </div>
-        
-        <button 
-          type="submit" 
-          style="background: #10b981; color: #fff; padding: 12px 32px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.2s;"
-        >
+
+        <button type="submit"
+          style="background: #10b981; color: #fff; padding: 12px 32px; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; font-size: 1rem; transition: all 0.2s;">
           Post Comment
         </button>
       </form>
     </div>
-    
+
     <!-- Comments List -->
     <div class="comments-list" id="commentsList">
-      <p style="color: #6b7280; font-style: italic;">Comments are moderated and will appear after approval. Be the first to comment!</p>
+      <p style="color: #6b7280; font-style: italic;">Comments are moderated and will appear after approval. Be the first
+        to comment!</p>
     </div>
   </div>
 </section>
 
 <script>
-// Simple comment form handler (Replace with actual backend integration)
-document.getElementById('commentForm')?.addEventListener('submit', function(e) {
-  e.preventDefault();
-  const formData = new FormData(this);
-  const name = formData.get('name');
-  const comment = formData.get('comment');
-  
-  alert(`Thank you, ${name}! Your comment has been submitted for moderation and will appear shortly.`);
-  this.reset();
-  
-  // TODO: Send to backend API
-  // fetch('/api/comments', {
-  //   method: 'POST',
-  //   body: JSON.stringify({name, email, comment}),
-  //   headers: {'Content-Type': 'application/json'}
-  // });
-});
-</script>
+  // Simple comment system using LocalStorage
+  const COMMENTS_KEY = 'glp1_blog_comments';
 
+  function loadComments() {
+    const container = document.getElementById('commentsList');
+    if (!container) return;
+
+    const comments = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+
+    if (comments.length === 0) {
+      container.innerHTML = '<p style="color: #6b7280; font-style: italic;">Be the first to share your journey!</p>';
+      return;
+    }
+
+    container.innerHTML = comments.map(c => `
+    <div style="background: #fff; border: 1px solid #e2e8f0; padding: 20px; border-radius: 12px; margin-bottom: 20px;">
+      <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+        <strong style="color: #1f2937;">${c.name}</strong>
+        <span style="font-size: 0.85rem; color: #9ca3af;">${new Date(c.date).toLocaleDateString()}</span>
+      </div>
+      <p style="color: #4b5563; line-height: 1.6;">${c.comment}</p>
+    </div>
+  `).reverse().join('');
+  }
+
+  document.getElementById('commentForm')?.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(this);
+    const newComment = {
+      name: formData.get('name'),
+      comment: formData.get('comment'),
+      date: new Date().toISOString()
+    };
+
+    const comments = JSON.parse(localStorage.getItem(COMMENTS_KEY)) || [];
+    comments.push(newComment);
+    localStorage.setItem(COMMENTS_KEY, JSON.stringify(comments));
+
+    this.reset();
+    loadComments();
+
+    // Animation effect
+    const firstComment = document.getElementById('commentsList').firstElementChild;
+    if (firstComment) {
+      firstComment.style.animation = 'commentBounce 0.5s ease';
+    }
+  });
+
+  // Initial load
+  document.addEventListener('DOMContentLoaded', loadComments);
+
+  // Add simple animation
+  const style = document.createElement('style');
+  style.textContent = `
+  @keyframes commentBounce {
+    0% { transform: translateY(-10px); opacity: 0; }
+    100% { transform: translateY(0); opacity: 1; }
+  }
+`;
+  document.head.appendChild(style);
+</script>
