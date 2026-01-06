@@ -108,3 +108,86 @@ function planMeals() {
   document.getElementById('mealResult').classList.add('show');
 }
 
+// NEW: Food-to-Relief Smart Matcher Logic
+function matchReliefFood() {
+  const symptom = document.getElementById('symptomSelect').value;
+  const content = document.getElementById('reliefContent');
+  const resultBox = document.getElementById('reliefResult');
+  
+  if (!symptom) {
+    resultBox.classList.remove('show');
+    return;
+  }
+  
+  const reliefMap = {
+    nausea: {
+      title: "Nausea Relief Pack",
+      foods: ["Cold ginger tea", "Plain crackers", "Green apples", "Protein-water (sip slowly)", "Peppermint mints"],
+      tip: "Avoid warm, heavy, or fatty foods. Stick to 'cold and bland'."
+    },
+    reflux: {
+      title: "Reflux Management",
+      foods: ["Papaya (natural enzymes)", "Oatmeal", "Melon", "Ginger", "Almond milk"],
+      tip: "Stay upright for 2 hours after eating. Avoid mint, chocolate, and citrus."
+    },
+    constipation: {
+      title: "Digestion Support",
+      foods: ["Chia seeds (soaked)", "Kiwi fruit", "Magnesium-rich foods", "Warm lemon water", "Flaxseed"],
+      tip: "Ensure you are hitting your hydration target before increasing fiber."
+    },
+    fatigue: {
+      title: "Energy Boosters",
+      foods: ["Hard-boiled eggs", "Greek yogurt", "Electrolyte water", "B-Vitamin rich turkey", "Handful of almonds"],
+      tip: "Fatigue is often dehydration or low protein. Check your daily logs."
+    },
+    aversion: {
+      title: "Cold Food Strategy",
+      foods: ["Cottage cheese", "Cold chicken strips", "Protein smoothies", "Chilled cucumber with salt", "Greek yogurt bowls"],
+      tip: "When hot food smells are too much, chilled protein is your best friend."
+    }
+  };
+  
+  const selected = reliefMap[symptom];
+  document.getElementById('reliefTitle').textContent = selected.title;
+  content.innerHTML = `
+    <ul style="margin: 12px 0; padding-left: 20px; line-height: 1.8;">
+      ${selected.foods.map(f => `<li><strong>${f}</strong></li>`).join('')}
+    </ul>
+    <p style="background: rgba(16, 185, 129, 0.1); padding: 12px; border-radius: 6px; font-size: 0.9rem;">
+      💡 <strong>Expert Tip:</strong> ${selected.tip}
+    </p>
+  `;
+  resultBox.classList.add('show');
+}
+
+// NEW: GLP-1 Routine Assessment Quiz Logic
+function calculateQuiz() {
+  const q1 = parseInt(document.getElementById('q1').value);
+  const q2 = parseInt(document.getElementById('q2').value);
+  const q3 = parseInt(document.getElementById('q3').value);
+  
+  const total = q1 + q2 + q3;
+  const resultBox = document.getElementById('quizResult');
+  const valueBox = document.getElementById('quizValue');
+  const feedback = document.getElementById('quizFeedback');
+  const tips = document.getElementById('quizTips');
+  
+  valueBox.textContent = `${total} / 60`;
+  
+  if (total <= 20) {
+    feedback.textContent = "Needs Attention ⚠️";
+    feedback.style.color = "#ef4444";
+    tips.innerHTML = "Priority 1: Increase protein. Priority 2: Add daily electrolytes to prevent headaches.";
+  } else if (total <= 40) {
+    feedback.textContent = "Getting There! 👍";
+    feedback.style.color = "#fbbf24";
+    tips.innerHTML = "You're on the right track. Try adding 2 days of resistance training to protect your metabolic health.";
+  } else {
+    feedback.textContent = "GLP-1 Pro! 🌟";
+    feedback.style.color = "#10b981";
+    tips.innerHTML = "Excellent habits! You are optimizing for long-term health and muscle preservation.";
+  }
+  
+  resultBox.classList.add('show');
+}
+

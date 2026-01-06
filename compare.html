@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLP-1 Comparison Tool | Ozempic vs Wegovy vs Mounjaro vs Zepbound</title>
+  
+  <meta name="description" content="Compare GLP-1 medications side-by-side: Ozempic, Wegovy, Mounjaro, Zepbound. Dosing, efficacy, cost, availability comparison." />
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    .comparison-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 40px 20px;
+    }
+    
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      min-width: 800px;
+    }
+    
+    .comparison-table th {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: #fff;
+      padding: 20px;
+      text-align: left;
+      font-weight: 700;
+      font-size: 1.1rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .comparison-table th:first-child {
+      border-top-left-radius: 16px;
+    }
+    
+    .comparison-table th:last-child {
+      border-top-right-radius: 16px;
+    }
+    
+    .comparison-table td {
+      padding: 20px;
+      border-bottom: 1px solid #f3f4f6;
+    }
+    
+    .comparison-table tr:hover {
+      background: #f9fafb;
+    }
+    
+    .comparison-table td:first-child {
+      font-weight: 700;
+      color: #374151;
+      background: #f9fafb;
+    }
+    
+    .pill-indicator {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+    }
+    
+    .pill-high {
+      background: #d1fae5;
+      color: #065f46;
+    }
+    
+    .pill-medium {
+      background: #fef3c7;
+      color: #92400e;
+    }
+    
+    .pill-low {
+      background: #fee2e2;
+      color: #991b1b;
+    }
+    
+    .quiz-container {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      border-radius: 16px;
+      padding: 48px;
+      color: #fff;
+      margin-bottom: 48px;
+      text-align: center;
+    }
+    
+    .quiz-question {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 32px;
+    }
+    
+    .quiz-options {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+    }
+    
+    .quiz-option {
+      background: rgba(255,255,255,0.2);
+      border: 2px solid rgba(255,255,255,0.3);
+      color: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-weight: 600;
+    }
+    
+    .quiz-option:hover {
+      background: rgba(255,255,255,0.3);
+      border-color: #fff;
+      transform: scale(1.05);
+    }
+    
+    .quiz-result {
+      background: #fff;
+      color: #1f2937;
+      padding: 32px;
+      border-radius: 12px;
+      margin-top: 32px;
+      display: none;
+    }
+    
+    .quiz-result.show {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-row">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <div>
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
+        </div>
+      </div>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="nav">
+      <div class="shell nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">GLP-1 Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart Eating</a></li>
+          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="muscle.html">Muscle & Metabolic</a></li>
+          <li><a href="recipes.html">Easy Protein</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="compare.html" class="active">Compare</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="comparison-container">
+      <div class="section-head">
+        <p class="eyebrow">Make informed decisions</p>
+        <h1>💊 GLP-1 Medication Comparison</h1>
+        <p class="lede">Compare Ozempic, Wegovy, Mounjaro, and Zepbound side-by-side. Dosing, efficacy, costs, and more.</p>
+      </div>
+
+      <!-- Quiz Section -->
+      <div class="quiz-container">
+        <div class="quiz-question">🤔 Which GLP-1 Medication Might Be Right For You?</div>
+        <p style="margin-bottom: 24px; opacity: 0.9;">Answer a few questions to get personalized guidance (not medical advice)</p>
+        
+        <div class="quiz-options">
+          <div class="quiz-option" onclick="showQuizResult('weight-loss')">
+            🎯 Primary goal: Weight loss
+          </div>
+          <div class="quiz-option" onclick="showQuizResult('diabetes')">
+            🩺 Primary goal: Diabetes management
+          </div>
+          <div class="quiz-option" onclick="showQuizResult('both')">
+            💪 Both weight loss & diabetes
+          </div>
+          <div class="quiz-option" onclick="showQuizResult('cost')">
+            💰 Most cost-effective option
+          </div>
+        </div>
+        
+        <div class="quiz-result" id="quizResult"></div>
+      </div>
+
+      <!-- Comparison Table -->
+      <div class="comparison-table-wrapper">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>💙 Ozempic</th>
+              <th>💜 Wegovy</th>
+              <th>🧡 Mounjaro</th>
+              <th>💚 Zepbound</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Active Ingredient</td>
+              <td>Semaglutide</td>
+              <td>Semaglutide</td>
+              <td>Tirzepatide</td>
+              <td>Tirzepatide</td>
+            </tr>
+            <tr>
+              <td>FDA Approved For</td>
+              <td>Type 2 Diabetes</td>
+              <td>Weight Management</td>
+              <td>Type 2 Diabetes</td>
+              <td>Weight Management</td>
+            </tr>
+            <tr>
+              <td>Mechanism</td>
+              <td>GLP-1 agonist</td>
+              <td>GLP-1 agonist</td>
+              <td>GLP-1 + GIP agonist</td>
+              <td>GLP-1 + GIP agonist</td>
+            </tr>
+            <tr>
+              <td>Injection Frequency</td>
+              <td>Once weekly</td>
+              <td>Once weekly</td>
+              <td>Once weekly</td>
+              <td>Once weekly</td>
+            </tr>
+            <tr>
+              <td>Starting Dose</td>
+              <td>0.25mg</td>
+              <td>0.25mg</td>
+              <td>2.5mg</td>
+              <td>2.5mg</td>
+            </tr>
+            <tr>
+              <td>Maintenance Dose</td>
+              <td>0.5-2mg</td>
+              <td>2.4mg</td>
+              <td>5-15mg</td>
+              <td>5-15mg</td>
+            </tr>
+            <tr>
+              <td>Average Weight Loss (52 weeks)</td>
+              <td><span class="pill-indicator pill-medium">~12-14%</span></td>
+              <td><span class="pill-indicator pill-high">~15-17%</span></td>
+              <td><span class="pill-indicator pill-high">~20-22%</span></td>
+              <td><span class="pill-indicator pill-high">~20-22%</span></td>
+            </tr>
+            <tr>
+              <td>Common Side Effects</td>
+              <td>Nausea, vomiting, diarrhea</td>
+              <td>Nausea, vomiting, diarrhea</td>
+              <td>Nausea, vomiting, diarrhea</td>
+              <td>Nausea, vomiting, diarrhea</td>
+            </tr>
+            <tr>
+              <td>Side Effect Severity</td>
+              <td><span class="pill-indicator pill-medium">Moderate</span></td>
+              <td><span class="pill-indicator pill-high">Higher dose = more</span></td>
+              <td><span class="pill-indicator pill-medium">Moderate</span></td>
+              <td><span class="pill-indicator pill-medium">Moderate</span></td>
+            </tr>
+            <tr>
+              <td>Estimated US Cost/Month</td>
+              <td>$900-$1,000</td>
+              <td>$1,300-$1,500</td>
+              <td>$1,000-$1,100</td>
+              <td>$1,000-$1,100</td>
+            </tr>
+            <tr>
+              <td>Insurance Coverage</td>
+              <td><span class="pill-indicator pill-high">Good (diabetes)</span></td>
+              <td><span class="pill-indicator pill-low">Limited (weight loss)</span></td>
+              <td><span class="pill-indicator pill-high">Good (diabetes)</span></td>
+              <td><span class="pill-indicator pill-medium">Improving</span></td>
+            </tr>
+            <tr>
+              <td>Manufacturer Coupon</td>
+              <td>✅ Available</td>
+              <td>✅ Available</td>
+              <td>✅ Available</td>
+              <td>✅ Available</td>
+            </tr>
+            <tr>
+              <td>Supply Availability (2025)</td>
+              <td><span class="pill-indicator pill-high">Improving</span></td>
+              <td><span class="pill-indicator pill-medium">Moderate</span></td>
+              <td><span class="pill-indicator pill-high">Good</span></td>
+              <td><span class="pill-indicator pill-high">Good</span></td>
+            </tr>
+            <tr>
+              <td>Clinical Studies</td>
+              <td>SUSTAIN trials</td>
+              <td>STEP trials</td>
+              <td>SURPASS trials</td>
+              <td>SURMOUNT trials</td>
+            </tr>
+            <tr>
+              <td>Best For</td>
+              <td>Diabetes + weight loss</td>
+              <td>Weight loss primary goal</td>
+              <td>Diabetes + significant weight loss</td>
+              <td>Weight loss primary goal</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Key Takeaways -->
+      <div style="background: #f9fafb; border-radius: 16px; padding: 32px; margin-top: 48px;">
+        <h3 style="margin-bottom: 20px;">🔑 Key Takeaways</h3>
+        <ul style="line-height: 2; color: #374151;">
+          <li><strong>Ozempic</strong> - FDA approved for diabetes, widely used off-label for weight loss</li>
+          <li><strong>Wegovy</strong> - Same as Ozempic but higher dose, FDA approved specifically for weight loss</li>
+          <li><strong>Mounjaro</strong> - Dual-action (GLP-1 + GIP), FDA approved for diabetes, often shows higher weight loss</li>
+          <li><strong>Zepbound</strong> - Same as Mounjaro but FDA approved specifically for weight loss</li>
+          <li><strong>All require prescription</strong> - Consult your doctor to determine which is right for you</li>
+          <li><strong>Cost varies</strong> - Insurance coverage, coupons, and availability differ by location</li>
+          <li><strong>Side effects similar</strong> - All can cause nausea, vomiting, and GI issues</li>
+        </ul>
+      </div>
+
+      <!-- Ad Slot -->
+      <div class="ad-slot" aria-label="Advertisement" style="margin: 48px 0;">
+        <ins class="adsbygoogle"
+             style="display:block"
+             data-ad-client="ca-pub-5462334042904965"
+             data-ad-slot="1234567890"
+             data-ad-format="auto"
+             data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="tracker.html">Tracker</a>
+        <a href="compare.html">Compare</a>
+        <a href="tools.html">Tools</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="shell footer-note">
+      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician for medical guidance, dosing, or medication questions.</p>
+    </div>
+  </footer>
+
+  <div class="cookie-consent" id="cookieConsent">
+    <div class="cookie-consent-content">
+      <div class="cookie-consent-text">
+        <h4>🍪 We value your privacy</h4>
+        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#" onclick="return false;">Learn more</a></p>
+      </div>
+      <div class="cookie-consent-buttons">
+        <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
+        <button class="cookie-btn cookie-btn-reject" onclick="rejectCookies()">Reject Non-Essential</button>
+        <button class="cookie-btn cookie-btn-manage" onclick="manageCookies()">Manage Options</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+  <script>
+    function showQuizResult(goal) {
+      const resultDiv = document.getElementById('quizResult');
+      let result = '';
+      
+      switch(goal) {
+        case 'weight-loss':
+          result = `<h3 style="color: #10b981; margin-bottom: 16px;">💜 Wegovy or 💚 Zepbound</h3>
+                    <p><strong>Best options for weight loss:</strong></p>
+                    <ul style="line-height: 2; text-align: left;">
+                      <li><strong>Wegovy</strong> - FDA approved for weight loss, proven 15-17% loss</li>
+                      <li><strong>Zepbound</strong> - Newer dual-action, shown up to 20-22% loss</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Next step:</strong> Discuss with your doctor which is available and covered by your insurance.</p>`;
+          break;
+        case 'diabetes':
+          result = `<h3 style="color: #10b981; margin-bottom: 16px;">💙 Ozempic or 🧡 Mounjaro</h3>
+                    <p><strong>Best options for diabetes management:</strong></p>
+                    <ul style="line-height: 2; text-align: left;">
+                      <li><strong>Ozempic</strong> - Proven diabetes control, bonus weight loss</li>
+                      <li><strong>Mounjaro</strong> - Strong A1C reduction, significant weight loss</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Next step:</strong> Your endocrinologist can help choose based on your A1C and goals.</p>`;
+          break;
+        case 'both':
+          result = `<h3 style="color: #10b981; margin-bottom: 16px;">🧡 Mounjaro (Best of both worlds)</h3>
+                    <p><strong>Dual benefits:</strong></p>
+                    <ul style="line-height: 2; text-align: left;">
+                      <li>Excellent A1C reduction for diabetes</li>
+                      <li>Higher weight loss than Ozempic (20-22% vs 12-14%)</li>
+                      <li>Dual-action mechanism (GLP-1 + GIP)</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Next step:</strong> Ask your doctor if Mounjaro is right for your situation.</p>`;
+          break;
+        case 'cost':
+          result = `<h3 style="color: #10b981; margin-bottom: 16px;">💙 Ozempic (With manufacturer coupon)</h3>
+                    <p><strong>Cost-saving tips:</strong></p>
+                    <ul style="line-height: 2; text-align: left;">
+                      <li><strong>Ozempic</strong> - Good insurance coverage for diabetes patients</li>
+                      <li><strong>Manufacturer coupons</strong> - Can reduce cost to $25-$250/month</li>
+                      <li><strong>Generic</strong> - Not yet available, expected 2030+</li>
+                      <li><strong>Telehealth</strong> - Some services offer better prices</li>
+                    </ul>
+                    <p style="margin-top: 16px;"><strong>Tip:</strong> Check GoodRx, manufacturer websites, and ask about patient assistance programs.</p>`;
+          break;
+      }
+      
+      resultDiv.innerHTML = result;
+      resultDiv.classList.add('show');
+    }
+  </script>
+</body>
+</html>
+
+

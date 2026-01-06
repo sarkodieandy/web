@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GLP-1 Food Cheat Sheet | High Protein & Fiber Database</title>
+  
+  <meta name="description" content="Searchable database of GLP-1 friendly foods. Filter by protein, fiber, and calorie density to optimize your nutrition." />
+  <link rel="canonical" href="https://glp-1tracker.netlify.app/foods.html" />
+  
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+  
+  <style>
+    .food-search-wrap {
+      margin-bottom: 32px;
+      position: sticky;
+      top: 80px;
+      z-index: 100;
+      background: #f8fafc;
+      padding: 16px 0;
+    }
+    
+    .food-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+    
+    .food-table th, .food-table td {
+      padding: 16px;
+      text-align: left;
+      border-bottom: 1px solid #f1f5f9;
+    }
+    
+    .food-table th {
+      background: #f8fafc;
+      font-weight: 700;
+      color: #1e293b;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+    }
+    
+    .food-row:hover {
+      background: #f0fdf4;
+    }
+    
+    .badge {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+    
+    .badge-protein { background: #dcfce7; color: #166534; }
+    .badge-fiber { background: #dbeafe; color: #1e40af; }
+    
+    @media (max-width: 600px) {
+      .food-table th:nth-child(3), .food-table td:nth-child(3) { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell topbar-row">
+      <div class="brand">
+        <span class="logo-dot"></span>
+        <div>
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
+        </div>
+      </div>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="nav">
+      <div class="shell nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart</a></li>
+          <li><a href="foods.html" class="active">Food Cheat Sheet</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="dashboard.html">Dashboard</a></li>
+          <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="section">
+      <div class="shell">
+        <div class="section-head">
+          <p class="eyebrow">Interactive Database</p>
+          <h1>GLP-1 Food Cheat Sheet</h1>
+          <p class="lede">Quickly find foods that are high in protein and fiber but gentle on the stomach. Perfect for hitting your daily targets.</p>
+        </div>
+
+        <div class="food-search-wrap">
+          <input type="text" id="foodInput" placeholder="Filter by food name (e.g., 'Chicken', 'Seeds', 'Fiber')..." 
+                 style="width: 100%; padding: 14px; border-radius: 12px; border: 2px solid #10b981; font-size: 1rem;"
+                 onkeyup="filterFoods()">
+        </div>
+
+        <table class="food-table" id="foodTable">
+          <thead>
+            <tr>
+              <th>Food Item</th>
+              <th>Primary Benefit</th>
+              <th>Serving Size</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="food-row">
+              <td><strong>Cottage Cheese (Low Fat)</strong></td>
+              <td><span class="badge badge-protein">Protein (14g)</span></td>
+              <td>1/2 Cup</td>
+              <td style="font-size: 0.8rem;">Very gentle on nausea</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Chia Seeds (Soaked)</strong></td>
+              <td><span class="badge badge-fiber">Fiber (10g)</span></td>
+              <td>2 Tbsp</td>
+              <td style="font-size: 0.8rem;">Great for digestion</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Greek Yogurt (Plain)</strong></td>
+              <td><span class="badge badge-protein">Protein (15g)</span></td>
+              <td>170g / 6oz</td>
+              <td style="font-size: 0.8rem;">Probiotics + Protein</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Roasted Chickpeas</strong></td>
+              <td><span class="badge badge-fiber">Fiber + Protein</span></td>
+              <td>1/4 Cup</td>
+              <td style="font-size: 0.8rem;">Crunchy, shelf-stable</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Edamame (Steamed)</strong></td>
+              <td><span class="badge badge-protein">Protein (18g)</span></td>
+              <td>1 Cup</td>
+              <td style="font-size: 0.8rem;">Plant-based powerhouse</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Hard Boiled Eggs</strong></td>
+              <td><span class="badge badge-protein">Protein (6g)</span></td>
+              <td>1 Egg</td>
+              <td style="font-size: 0.8rem;">Easy, grab-and-go</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Raspberries</strong></td>
+              <td><span class="badge badge-fiber">Fiber (8g)</span></td>
+              <td>1 Cup</td>
+              <td style="font-size: 0.8rem;">Low calorie, high fiber</td>
+            </tr>
+            <tr class="food-row">
+              <td><strong>Lentils (Cooked)</strong></td>
+              <td><span class="badge badge-fiber">Fiber (15g)</span></td>
+              <td>1 Cup</td>
+              <td style="font-size: 0.8rem;">Filling & Nutritious</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Ad Slot -->
+        <div class="ad-slot" aria-label="Advertisement" style="margin-top: 60px;">
+          <ins class="adsbygoogle"
+               style="display:block"
+               data-ad-client="ca-pub-5462334042904965"
+               data-ad-slot="1234567890"
+               data-ad-format="auto"
+               data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="shell footer-grid">
+      <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="updates.html">Updates</a>
+        <a href="eating.html">Nausea-Smart</a>
+        <a href="foods.html">Food Cheat Sheet</a>
+        <a href="tools.html">Tools</a>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="blog.html">Blog</a>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="shell footer-note">
+      <p class="tiny">Content is for education only. Consult your clinician for specific dietary needs.</p>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+  <script>
+    function filterFoods() {
+      const input = document.getElementById('foodInput');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('foodTable');
+      const tr = table.getElementsByTagName('tr');
+
+      for (let i = 1; i < tr.length; i++) {
+        const td = tr[i].getElementsByTagName('td')[0];
+        const td2 = tr[i].getElementsByTagName('td')[1];
+        if (td || td2) {
+          const txtValue = td.textContent || td.innerText;
+          const txtValue2 = td2.textContent || td2.innerText;
+          if (txtValue.toLowerCase().indexOf(filter) > -1 || txtValue2.toLowerCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+  </script>
+</body>
+</html>
+
+
