@@ -2605,3 +2605,126 @@ img[loading="lazy"].loaded {
     text-align: center;
   }
 }
+
+/* ============================================
+   PREMIUM BLOG & IMAGE FALLBACK STYLES
+   ============================================ */
+
+/* Robust Image Fallback */
+.blog-card-image-wrap {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  height: 220px;
+}
+
+/* Pseudo-element placeholder that shows if image fails or is loading */
+.blog-card-image-wrap::after {
+  content: 'GLP-1 Care';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Libre Baskerville', serif;
+  font-size: 1.2rem;
+  color: var(--brand);
+  opacity: 0.2;
+  font-weight: 700;
+  pointer-events: none;
+  letter-spacing: 1px;
+}
+
+.blog-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+  position: relative;
+  z-index: 2;
+}
+
+/* Floating Badges */
+.blog-card .blog-category {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(4px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0 !important;
+  /* Override previous margin */
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+/* Enhanced Card Content */
+.blog-card-content {
+  background: #fff;
+  padding: 24px !important;
+}
+
+.blog-card h3 {
+  font-size: 1.25rem !important;
+  margin-top: 0;
+  line-height: 1.4;
+  color: #0f172a;
+}
+
+.blog-excerpt {
+  font-size: 0.925rem !important;
+  color: #475569;
+}
+
+/* Compact AI Panel */
+.ai-panel.compact {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 32px;
+  align-items: center;
+  padding: 32px;
+  background: #f8fafc;
+  border: 1px solid var(--line);
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .ai-panel.compact {
+    grid-template-columns: 1fr;
+    padding: 24px;
+    gap: 16px;
+  }
+}
+
+/* Premium Blog Header */
+.blog-header-section {
+  background: linear-gradient(to bottom, #f0fdf4, #ffffff);
+  padding: 80px 0 40px;
+  border-bottom: 1px solid #dcfce7;
+}
+
+.blog-header-section h1 {
+  font-family: 'Libre Baskerville', serif;
+  font-size: 3.5rem;
+  color: #111827;
+  margin-bottom: 16px;
+}
+
+/* Article Hero Improvements */
+.article-hero {
+  position: relative;
+  padding: 100px 0 60px;
+  background: #fdfdfd;
+}
+
+.article-meta-top {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.article-hero h1 {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  line-height: 1.1;
+  max-width: 900px;
+}
