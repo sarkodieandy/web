@@ -1,91 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>GLP-1 Care Companion | Hydration & Comfort</title>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="shell topbar-row">
-      <div class="brand">
+  <header class="site-header">
+    <div class="topbar-row">
+      <a href="index.html" class="brand-group">
         <span class="logo-dot"></span>
-        <div>
+        <div class="brand-text">
           <p class="eyebrow">GLP-1 Care Companion</p>
           <p class="brand-name">Support & Patterns Hub</p>
         </div>
-      </div>
+      </a>
       <form class="search">
         <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
         <button type="submit">Search</button>
       </form>
     </div>
     <nav class="nav">
-      <div class="shell nav-row">
+      <div class="nav-row">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="updates.html">GLP-1 Updates</a></li>
           <li><a href="eating.html">Nausea-Smart Eating</a></li>
-          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="hydration.html" class="active">Hydration</a></li>
           <li><a href="muscle.html">Muscle & Metabolic</a></li>
           <li><a href="recipes.html">Easy Protein</a></li>
           <li><a href="tools.html">Tools</a></li>
+          <li><a href="food-scanner.html" id="nav-food-scanner">AI Food Scanner</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="checkin.html">Check-in</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </nav>
   </header>
-
   <main>
-    <section class="hero hero-slider-container" style="position: relative; overflow: hidden; padding: 0; min-height: 500px;">
+    <section class="hero hero-slider-container"
+      style="position: relative; overflow: hidden; padding: 0; min-height: 500px;">
       <div class="hero-slider">
-        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80');">
-          <div class="hero-overlay"></div>
+        <div class="hero-slide active"
+          style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay" style="background: rgba(0,0,0,0.5);"></div>
           <div class="shell hero-content">
             <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
               <p class="eyebrow" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Hydration Strategy</p>
-              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">Fluids, electrolytes, and comfort</h1>
-              <p class="lede" style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Small, steady sips throughout the day to maintain hydration and energy.</p>
+              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">
+                Fluids, electrolytes, and comfort</h1>
+              <p class="lede"
+                style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                Small, steady sips throughout the day to maintain hydration and energy.</p>
             </div>
           </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=80');">
-          <div class="hero-overlay"></div>
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay" style="background: rgba(0,0,0,0.5);"></div>
           <div class="shell hero-content">
             <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
               <p class="eyebrow" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Daily Baseline</p>
-              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">8–10 cups of water daily</h1>
-              <p class="lede" style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Sip 4–8 oz every hour while awake for steady hydration.</p>
+              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">8–10
+                cups of water daily</h1>
+              <p class="lede"
+                style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                Sip 4–8 oz every hour while awake for steady hydration.</p>
             </div>
           </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=1600&q=80');">
-          <div class="hero-overlay"></div>
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay" style="background: rgba(0,0,0,0.5);"></div>
           <div class="shell hero-content">
             <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
               <p class="eyebrow" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Electrolyte Support</p>
-              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">ORS and salty broths</h1>
-              <p class="lede" style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Use oral rehydration solutions when intake is low or you feel lightheaded.</p>
+              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">ORS
+                and salty broths</h1>
+              <p class="lede"
+                style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                Use oral rehydration solutions when intake is low or you feel lightheaded.</p>
             </div>
           </div>
         </div>
-        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?auto=format&fit=crop&w=1600&q=80');">
-          <div class="hero-overlay"></div>
+        <div class="hero-slide"
+          style="background-image: url('https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?auto=format&fit=crop&w=1600&q=80');">
+          <div class="hero-overlay" style="background: rgba(0,0,0,0.5);"></div>
           <div class="shell hero-content">
             <div style="text-align: center; max-width: 800px; margin: 0 auto; position: relative; z-index: 2;">
               <p class="eyebrow" style="color: white; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Monitoring</p>
-              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">Track your hydration</h1>
-              <p class="lede" style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">Check urine color: pale yellow is ideal, dark signals dehydration.</p>
+              <h1 style="font-size: 2.5rem; margin: 12px 0; color: white; text-shadow: 0 2px 8px rgba(0,0,0,0.4);">Track
+                your hydration</h1>
+              <p class="lede"
+                style="font-size: 1.1rem; color: white; margin-bottom: 24px; text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+                Check urine color: pale yellow is ideal, dark signals dehydration.</p>
             </div>
           </div>
         </div>
@@ -100,76 +118,88 @@
         <div>
           <p class="eyebrow">Complete Hydration Guide</p>
           <h2>Master fluid balance during GLP-1 therapy</h2>
-          <p class="lede">Comprehensive strategies for daily hydration, electrolyte support, and dehydration prevention with detailed tracking methods.</p>
+          <p class="lede">Comprehensive strategies for daily hydration, electrolyte support, and dehydration prevention
+            with detailed tracking methods.</p>
         </div>
       </div>
 
       <!-- New Ad Unit - Slot 2634509333 -->
       <div class="shell" style="margin: 30px auto;">
         <div class="ad-container display" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="2634509333"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+            data-ad-slot="2634509333" data-ad-format="auto" data-full-width-responsive="true"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
       </div>
-      
+
       <div class="shell card-grid two">
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80" alt="Water hydration">
+          <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?auto=format&fit=crop&w=900&q=80"
+            alt="Water hydration">
           <div class="card-body">
             <p class="eyebrow">Strategy #1</p>
             <h3>Daily Water Baseline</h3>
-            <p class="muted">Establish and maintain consistent fluid intake throughout the day to prevent dehydration and support medication tolerance.</p>
+            <p class="muted">Establish and maintain consistent fluid intake throughout the day to prevent dehydration
+              and support medication tolerance.</p>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Daily Targets</h4>
             <ul class="card-points">
-              <li><strong>Baseline goal:</strong> 2–2.5 litres / 8–10 cups / 64–80 fl oz water daily (adjust for climate, activity, body size).</li>
-              <li><strong>Hourly approach:</strong> Sip 120–240ml (4–8 fl oz) every hour while awake (16 hours = 2–3.8 litres).</li>
-              <li><strong>Meal timing:</strong> Drink 240ml (8 fl oz) 30 minutes before meals; small sips during meals; avoid large amounts immediately after.</li>
-              <li><strong>Activity adjustment:</strong> Add 480–720ml (16–24 fl oz) for every 30 minutes of moderate exercise or hot weather.</li>
-              <li><strong>Individual factors:</strong> Larger body size, hot climate, or high activity = higher end of range (2.5–3 litres / 85–100 fl oz).</li>
+              <li><strong>Baseline goal:</strong> 2–2.5 litres / 8–10 cups / 64–80 fl oz water daily (adjust for
+                climate, activity, body size).</li>
+              <li><strong>Hourly approach:</strong> Sip 120–240ml (4–8 fl oz) every hour while awake (16 hours = 2–3.8
+                litres).</li>
+              <li><strong>Meal timing:</strong> Drink 240ml (8 fl oz) 30 minutes before meals; small sips during meals;
+                avoid large amounts immediately after.</li>
+              <li><strong>Activity adjustment:</strong> Add 480–720ml (16–24 fl oz) for every 30 minutes of moderate
+                exercise or hot weather.</li>
+              <li><strong>Individual factors:</strong> Larger body size, hot climate, or high activity = higher end of
+                range (2.5–3 litres / 85–100 fl oz).</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Sipping Strategy</h4>
             <ul class="card-points">
-              <li><strong>Small, frequent sips:</strong> 30–60ml (1–2 fl oz) every 10–15 minutes is easier to tolerate than large gulps.</li>
-              <li><strong>Temperature:</strong> Room temperature or slightly cool (15–20°C / 60–70°F) often feels gentler than ice-cold during nausea.</li>
-              <li><strong>Avoid chugging:</strong> Drinking 240ml+ (8+ fl oz) at once can trigger nausea, reflux, or bloating.</li>
-              <li><strong>Carry a bottle:</strong> Use 500–750ml (16–24 fl oz) reusable bottle with volume markers; refill 3–4 times daily.</li>
-              <li><strong>Set reminders:</strong> Phone alarms every hour to prompt sipping if thirst cues are weak.</li>
+              <li><strong>Small, frequent sips:</strong> 30–60ml (1–2 fl oz) every 10–15 minutes is easier to tolerate
+                than large gulps.</li>
+              <li><strong>Temperature:</strong> Room temperature or slightly cool (15–20°C / 60–70°F) often feels
+                gentler than ice-cold during nausea.</li>
+              <li><strong>Avoid chugging:</strong> Drinking 240ml+ (8+ fl oz) at once can trigger nausea, reflux, or
+                bloating.</li>
+              <li><strong>Carry a bottle:</strong> Use 500–750ml (16–24 fl oz) reusable bottle with volume markers;
+                refill 3–4 times daily.</li>
+              <li><strong>Set reminders:</strong> Phone alarms every hour to prompt sipping if thirst cues are weak.
+              </li>
             </ul>
 
             <!-- New Fluid Ad Unit - Slot 3055157642 -->
             <div class="ad-container display" style="margin: 30px 0;" aria-label="Advertisement">
-              <ins class="adsbygoogle"
-                   style="display:block"
-                   data-ad-format="fluid"
-                   data-ad-layout-key="-6e+c9+1y-16+b1"
-                   data-ad-client="ca-pub-5462334042904965"
-                   data-ad-slot="3055157642"></ins>
+              <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6e+c9+1y-16+b1"
+                data-ad-client="ca-pub-5462334042904965" data-ad-slot="3055157642"></ins>
               <script>
-                   (adsbygoogle = window.adsbygoogle || []).push({});
+                (adsbygoogle = window.adsbygoogle || []).push({});
               </script>
             </div>
 
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Water Types & Enhancements</h4>
             <ul class="card-points">
               <li><strong>Plain water:</strong> Best baseline; tap (filtered if preferred) or bottled.</li>
-              <li><strong>Sparkling water:</strong> Can help with nausea for some; may cause bloating for others (test tolerance).</li>
-              <li><strong>Infused water:</strong> Add cucumber, lemon, lime, mint, or berries for flavour without sugar.</li>
-              <li><strong>Herbal teas:</strong> Peppermint, ginger, chamomile count toward fluid intake (caffeine-free).</li>
-              <li><strong>Avoid:</strong> Flavoured waters with added sugar, artificial sweeteners in excess, or high-sodium mineral waters.</li>
+              <li><strong>Sparkling water:</strong> Can help with nausea for some; may cause bloating for others (test
+                tolerance).</li>
+              <li><strong>Infused water:</strong> Add cucumber, lemon, lime, mint, or berries for flavour without sugar.
+              </li>
+              <li><strong>Herbal teas:</strong> Peppermint, ginger, chamomile count toward fluid intake (caffeine-free).
+              </li>
+              <li><strong>Avoid:</strong> Flavoured waters with added sugar, artificial sweeteners in excess, or
+                high-sodium mineral waters.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Tracking Methods</h4>
             <ul class="card-points">
               <li><strong>Bottle method:</strong> Fill 750ml (24 fl oz) bottle 3 times = 2.25 litres (72 fl oz).</li>
-              <li><strong>App tracking:</strong> Use hydration apps (WaterMinder, MyWater, Plant Nanny) with reminders.</li>
-              <li><strong>Visual markers:</strong> Draw lines on bottle for hourly goals (e.g., "10 AM", "12 PM", "2 PM").</li>
-              <li><strong>Daily log:</strong> Note total intake in phone or journal; track patterns vs. nausea/energy levels.</li>
+              <li><strong>App tracking:</strong> Use hydration apps (WaterMinder, MyWater, Plant Nanny) with reminders.
+              </li>
+              <li><strong>Visual markers:</strong> Draw lines on bottle for hourly goals (e.g., "10 AM", "12 PM", "2
+                PM").</li>
+              <li><strong>Daily log:</strong> Note total intake in phone or journal; track patterns vs. nausea/energy
+                levels.</li>
             </ul>
           </div>
         </article>
@@ -177,14 +207,10 @@
         <!-- New In-Article Ad Unit - Slot 2075256076 -->
         <div class="shell" style="margin: 30px auto;">
           <div class="ad-container in-article" aria-label="Advertisement">
-            <ins class="adsbygoogle"
-                 style="display:block; text-align:center;"
-                 data-ad-layout="in-article"
-                 data-ad-format="fluid"
-                 data-ad-client="ca-pub-5462334042904965"
-                 data-ad-slot="2075256076"></ins>
+            <ins class="adsbygoogle" style="display:block; text-align:center;" data-ad-layout="in-article"
+              data-ad-format="fluid" data-ad-client="ca-pub-5462334042904965" data-ad-slot="2075256076"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+              (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
           </div>
         </div>
@@ -192,119 +218,158 @@
         <!-- New Autorelaxed Ad Unit - Slot 8816774303 -->
         <div class="shell" style="margin: 30px auto;">
           <div class="ad-container display" aria-label="Advertisement">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="autorelaxed"
-                 data-ad-client="ca-pub-5462334042904965"
-                 data-ad-slot="8816774303"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+              data-ad-client="ca-pub-5462334042904965" data-ad-slot="8816774303"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+              (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
           </div>
         </div>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=900&q=80" alt="Electrolyte drinks">
+          <img src="https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=900&q=80"
+            alt="Electrolyte drinks">
           <div class="card-body">
             <p class="eyebrow">Strategy #2</p>
             <h3>Electrolyte Support & ORS</h3>
-            <p class="muted">Use oral rehydration solutions and electrolyte-rich fluids when water intake is low, nausea is high, or you feel lightheaded.</p>
+            <p class="muted">Use oral rehydration solutions and electrolyte-rich fluids when water intake is low, nausea
+              is high, or you feel lightheaded.</p>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">When to Use ORS</h4>
             <ul class="card-points">
               <li><strong>Low fluid intake:</strong> If you've consumed less than 1 litre (32 fl oz) in 12 hours.</li>
               <li><strong>Persistent vomiting:</strong> Unable to keep water down for 4+ hours.</li>
-              <li><strong>Lightheadedness:</strong> Dizziness when standing, especially after sitting or lying down (orthostatic hypotension).</li>
+              <li><strong>Lightheadedness:</strong> Dizziness when standing, especially after sitting or lying down
+                (orthostatic hypotension).</li>
               <li><strong>Dark urine:</strong> Urine is dark yellow or amber (sign of dehydration).</li>
               <li><strong>Extreme thirst:</strong> Dry mouth, cracked lips, intense thirst despite drinking water.</li>
-              <li><strong>Post-vomiting:</strong> After vomiting episode, wait 15–20 minutes, then start ORS in small sips.</li>
+              <li><strong>Post-vomiting:</strong> After vomiting episode, wait 15–20 minutes, then start ORS in small
+                sips.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">ORS Products & Preparation</h4>
             <ul class="card-points">
-              <li><strong>Commercial brands (US):</strong> Pedialyte (liquid or powder), DripDrop, Liquid I.V., Nuun Sport (low-sugar).</li>
+              <li><strong>Commercial brands (US):</strong> Pedialyte (liquid or powder), DripDrop, Liquid I.V., Nuun
+                Sport (low-sugar).</li>
               <li><strong>Commercial brands (UK/EU):</strong> Dioralyte, Electrolade, pharmacy own-brand sachets.</li>
-              <li><strong>Preparation:</strong> Mix 1 sachet/stick with 240–480ml (8–16 fl oz) water (follow package instructions).</li>
-              <li><strong>Homemade ORS:</strong> 1 litre (4 cups) water + 6 tsp sugar + 1/2 tsp salt + squeeze of lemon/orange juice (emergency only; commercial is better balanced).</li>
-              <li><strong>Serving:</strong> Sip 60–120ml (2–4 fl oz) every 15–20 minutes; avoid chugging entire glass at once.</li>
+              <li><strong>Preparation:</strong> Mix 1 sachet/stick with 240–480ml (8–16 fl oz) water (follow package
+                instructions).</li>
+              <li><strong>Homemade ORS:</strong> 1 litre (4 cups) water + 6 tsp sugar + 1/2 tsp salt + squeeze of
+                lemon/orange juice (emergency only; commercial is better balanced).</li>
+              <li><strong>Serving:</strong> Sip 60–120ml (2–4 fl oz) every 15–20 minutes; avoid chugging entire glass at
+                once.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Electrolyte-Rich Foods & Drinks</h4>
             <ul class="card-points">
-              <li><strong>Broths:</strong> Low-sodium chicken, vegetable, or bone broth (240–360ml / 8–12 fl oz, warm or room-temp).</li>
-              <li><strong>Coconut water:</strong> Natural electrolytes (potassium, magnesium); 240ml (8 fl oz) serving (watch sugar content).</li>
-              <li><strong>Miso soup:</strong> Provides sodium and fluids; keep mild (avoid spicy versions during nausea).</li>
+              <li><strong>Broths:</strong> Low-sodium chicken, vegetable, or bone broth (240–360ml / 8–12 fl oz, warm or
+                room-temp).</li>
+              <li><strong>Coconut water:</strong> Natural electrolytes (potassium, magnesium); 240ml (8 fl oz) serving
+                (watch sugar content).</li>
+              <li><strong>Miso soup:</strong> Provides sodium and fluids; keep mild (avoid spicy versions during
+                nausea).</li>
               <li><strong>Tomato juice:</strong> Low-sodium version; 120–180ml (4–6 fl oz) (high in potassium).</li>
-              <li><strong>Watermelon:</strong> High water content + electrolytes; eat small portions (60–90g / 2–3 oz).</li>
+              <li><strong>Watermelon:</strong> High water content + electrolytes; eat small portions (60–90g / 2–3 oz).
+              </li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">What to Avoid</h4>
             <ul class="card-points">
-              <li><strong>High-sugar sports drinks:</strong> Gatorade, Powerade (unless diluted 50/50 with water); excess sugar can worsen nausea.</li>
-              <li><strong>Energy drinks:</strong> Red Bull, Monster (high caffeine + sugar; can cause jitteriness and dehydration).</li>
-              <li><strong>Excessive salt:</strong> Don't add extra salt to foods without clinician guidance (can raise blood pressure).</li>
+              <li><strong>High-sugar sports drinks:</strong> Gatorade, Powerade (unless diluted 50/50 with water);
+                excess sugar can worsen nausea.</li>
+              <li><strong>Energy drinks:</strong> Red Bull, Monster (high caffeine + sugar; can cause jitteriness and
+                dehydration).</li>
+              <li><strong>Excessive salt:</strong> Don't add extra salt to foods without clinician guidance (can raise
+                blood pressure).</li>
               <li><strong>Alcohol:</strong> Dehydrating and can worsen nausea; avoid entirely during GLP-1 therapy.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Electrolyte Balance</h4>
             <ul class="card-points">
-              <li><strong>Sodium:</strong> 2,300mg daily limit (US guidelines); 6g salt daily limit (UK guidelines); ORS provides balanced amounts.</li>
+              <li><strong>Sodium:</strong> 2,300mg daily limit (US guidelines); 6g salt daily limit (UK guidelines); ORS
+                provides balanced amounts.</li>
               <li><strong>Potassium:</strong> 3,500–4,700mg daily (from foods: bananas, potatoes, spinach, beans).</li>
-              <li><strong>Magnesium:</strong> 310–420mg daily (from foods: nuts, seeds, whole grains, leafy greens).</li>
-              <li><strong>When to supplement:</strong> Only use electrolyte supplements if recommended by clinician / GP; excess can be harmful.</li>
+              <li><strong>Magnesium:</strong> 310–420mg daily (from foods: nuts, seeds, whole grains, leafy greens).
+              </li>
+              <li><strong>When to supplement:</strong> Only use electrolyte supplements if recommended by clinician /
+                GP; excess can be harmful.</li>
             </ul>
           </div>
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=900&q=80" alt="Coffee and tea">
+          <img src="https://images.unsplash.com/photo-1548839140-29a749e1cf4d?auto=format&fit=crop&w=900&q=80"
+            alt="Coffee and tea">
           <div class="card-body">
             <p class="eyebrow">Strategy #3</p>
             <h3>Caffeine & Other Beverages</h3>
-            <p class="muted">Navigate coffee, tea, and other drinks strategically to avoid dehydration, blood sugar spikes, and nausea triggers.</p>
+            <p class="muted">Navigate coffee, tea, and other drinks strategically to avoid dehydration, blood sugar
+              spikes, and nausea triggers.</p>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Coffee Guidelines</h4>
             <ul class="card-points">
-              <li><strong>Daily limit:</strong> 1–2 cups (240–480ml / 8–16 fl oz) or 200–400mg caffeine (check with clinician / GP).</li>
-              <li><strong>Timing:</strong> Have with or after food (not on empty stomach); avoid after 2 PM if it affects sleep.</li>
-              <li><strong>Preparation:</strong> Black, or with low-fat milk (30–60ml / 1–2 fl oz); skip whipped cream, syrups, full-fat milk.</li>
-              <li><strong>Alternatives:</strong> Half-caff (50% regular, 50% decaf) or full decaf if caffeine worsens nausea or jitteriness.</li>
-              <li><strong>Hydration offset:</strong> For every cup of coffee, drink extra 120–240ml (4–8 fl oz) water (caffeine is mildly diuretic).</li>
+              <li><strong>Daily limit:</strong> 1–2 cups (240–480ml / 8–16 fl oz) or 200–400mg caffeine (check with
+                clinician / GP).</li>
+              <li><strong>Timing:</strong> Have with or after food (not on empty stomach); avoid after 2 PM if it
+                affects sleep.</li>
+              <li><strong>Preparation:</strong> Black, or with low-fat milk (30–60ml / 1–2 fl oz); skip whipped cream,
+                syrups, full-fat milk.</li>
+              <li><strong>Alternatives:</strong> Half-caff (50% regular, 50% decaf) or full decaf if caffeine worsens
+                nausea or jitteriness.</li>
+              <li><strong>Hydration offset:</strong> For every cup of coffee, drink extra 120–240ml (4–8 fl oz) water
+                (caffeine is mildly diuretic).</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Tea Options</h4>
             <ul class="card-points">
-              <li><strong>Black tea:</strong> 40–70mg caffeine per cup; have with food; add low-fat milk if desired.</li>
+              <li><strong>Black tea:</strong> 40–70mg caffeine per cup; have with food; add low-fat milk if desired.
+              </li>
               <li><strong>Green tea:</strong> 25–50mg caffeine per cup; rich in antioxidants; gentler than coffee.</li>
-              <li><strong>Herbal teas (caffeine-free):</strong> Peppermint (nausea relief), ginger (digestive support), chamomile (calming), rooibos (mild flavour).</li>
-              <li><strong>Iced tea:</strong> Unsweetened or lightly sweetened (avoid pre-made versions with 20–30g sugar per bottle).</li>
-              <li><strong>Matcha:</strong> 70mg caffeine per serving; provides sustained energy; mix with low-fat milk or water.</li>
+              <li><strong>Herbal teas (caffeine-free):</strong> Peppermint (nausea relief), ginger (digestive support),
+                chamomile (calming), rooibos (mild flavour).</li>
+              <li><strong>Iced tea:</strong> Unsweetened or lightly sweetened (avoid pre-made versions with 20–30g sugar
+                per bottle).</li>
+              <li><strong>Matcha:</strong> 70mg caffeine per serving; provides sustained energy; mix with low-fat milk
+                or water.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Sugary Drinks (Minimize)</h4>
             <ul class="card-points">
-              <li><strong>Sodas / fizzy drinks:</strong> 35–40g sugar per 330ml (12 fl oz) can; causes rapid blood sugar spike and crash.</li>
-              <li><strong>Fruit juices:</strong> 20–30g sugar per 240ml (8 fl oz) glass; lacks fiber of whole fruit; dilute 50/50 with water if consuming.</li>
-              <li><strong>Sweetened iced coffee/tea:</strong> Can contain 30–50g sugar per serving; choose unsweetened or add 1 tsp honey max.</li>
-              <li><strong>Portion control:</strong> If you choose sugary drinks, limit to 120–180ml (4–6 fl oz) and pair with protein (e.g., yogurt, nuts).</li>
-              <li><strong>Better alternatives:</strong> Sparkling water with fruit slices, unsweetened iced tea, infused water.</li>
+              <li><strong>Sodas / fizzy drinks:</strong> 35–40g sugar per 330ml (12 fl oz) can; causes rapid blood sugar
+                spike and crash.</li>
+              <li><strong>Fruit juices:</strong> 20–30g sugar per 240ml (8 fl oz) glass; lacks fiber of whole fruit;
+                dilute 50/50 with water if consuming.</li>
+              <li><strong>Sweetened iced coffee/tea:</strong> Can contain 30–50g sugar per serving; choose unsweetened
+                or add 1 tsp honey max.</li>
+              <li><strong>Portion control:</strong> If you choose sugary drinks, limit to 120–180ml (4–6 fl oz) and pair
+                with protein (e.g., yogurt, nuts).</li>
+              <li><strong>Better alternatives:</strong> Sparkling water with fruit slices, unsweetened iced tea, infused
+                water.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Alcohol (Avoid or Minimize)</h4>
             <ul class="card-points">
-              <li><strong>Dehydration risk:</strong> Alcohol is diuretic; increases fluid loss and worsens dehydration.</li>
+              <li><strong>Dehydration risk:</strong> Alcohol is diuretic; increases fluid loss and worsens dehydration.
+              </li>
               <li><strong>Nausea trigger:</strong> Can irritate stomach lining and worsen GLP-1 nausea.</li>
-              <li><strong>Blood sugar impact:</strong> Can cause hypoglycaemia (low blood sugar), especially if not eating enough.</li>
-              <li><strong>If consuming:</strong> Limit to 1 drink (150ml / 5 fl oz wine, 360ml / 12 fl oz beer); have with food; drink 240ml (8 fl oz) water per alcoholic drink.</li>
-              <li><strong>Best practice:</strong> Avoid alcohol entirely during first 8–12 weeks of GLP-1 therapy; discuss with clinician / GP before resuming.</li>
+              <li><strong>Blood sugar impact:</strong> Can cause hypoglycaemia (low blood sugar), especially if not
+                eating enough.</li>
+              <li><strong>If consuming:</strong> Limit to 1 drink (150ml / 5 fl oz wine, 360ml / 12 fl oz beer); have
+                with food; drink 240ml (8 fl oz) water per alcoholic drink.</li>
+              <li><strong>Best practice:</strong> Avoid alcohol entirely during first 8–12 weeks of GLP-1 therapy;
+                discuss with clinician / GP before resuming.</li>
             </ul>
           </div>
         </article>
 
         <article class="card">
-          <img src="https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?auto=format&fit=crop&w=900&q=80" alt="Hydration monitoring">
+          <img src="https://images.unsplash.com/photo-1587080266227-677cc2a4e76e?auto=format&fit=crop&w=900&q=80"
+            alt="Hydration monitoring">
           <div class="card-body">
             <p class="eyebrow">Strategy #4</p>
             <h3>Monitoring & Dehydration Prevention</h3>
-            <p class="muted">Learn to recognize dehydration signs early and track hydration status using simple, reliable methods.</p>
+            <p class="muted">Learn to recognize dehydration signs early and track hydration status using simple,
+              reliable methods.</p>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Urine Color Chart</h4>
             <ul class="card-points">
               <li><strong>Pale yellow / straw color:</strong> Well-hydrated (ideal).</li>
               <li><strong>Light yellow:</strong> Adequately hydrated (good).</li>
               <li><strong>Dark yellow / amber:</strong> Mild dehydration (increase water intake immediately).</li>
-              <li><strong>Orange / brown:</strong> Severe dehydration (seek medical attention if persistent after drinking fluids).</li>
-              <li><strong>Clear / colorless:</strong> Overhydrated (rare; reduce intake slightly; can dilute electrolytes).</li>
+              <li><strong>Orange / brown:</strong> Severe dehydration (seek medical attention if persistent after
+                drinking fluids).</li>
+              <li><strong>Clear / colorless:</strong> Overhydrated (rare; reduce intake slightly; can dilute
+                electrolytes).</li>
               <li><strong>Check frequency:</strong> Monitor urine color 3–4 times daily (morning, midday, evening).</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Early Dehydration Signs</h4>
@@ -316,32 +381,42 @@
               <li><strong>Dizziness:</strong> Lightheadedness when standing up from sitting or lying down.</li>
               <li><strong>Reduced urination:</strong> Urinating less than 4–6 times daily (normal is 6–8 times).</li>
             </ul>
-            <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Severe Dehydration (Seek Medical Help)</h4>
+            <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Severe Dehydration (Seek Medical Help)
+            </h4>
             <ul class="card-points">
               <li><strong>Extreme thirst:</strong> Intense, unquenchable thirst despite drinking.</li>
               <li><strong>Very dark urine:</strong> Orange, brown, or no urination for 8+ hours.</li>
               <li><strong>Rapid heartbeat:</strong> Heart racing at rest (90+ bpm when calm).</li>
               <li><strong>Confusion / irritability:</strong> Mental fog, difficulty concentrating, mood changes.</li>
               <li><strong>Sunken eyes:</strong> Eyes appear hollow or sunken.</li>
-              <li><strong>Skin tenting:</strong> Pinch skin on back of hand; if it stays "tented" for 2+ seconds, severe dehydration.</li>
+              <li><strong>Skin tenting:</strong> Pinch skin on back of hand; if it stays "tented" for 2+ seconds, severe
+                dehydration.</li>
               <li><strong>Fainting:</strong> Loss of consciousness or near-fainting episodes.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Daily Hydration Checklist</h4>
             <ul class="card-points">
-              <li><strong>Morning:</strong> Drink 240–480ml (8–16 fl oz) within 1 hour of waking; check urine color.</li>
+              <li><strong>Morning:</strong> Drink 240–480ml (8–16 fl oz) within 1 hour of waking; check urine color.
+              </li>
               <li><strong>Throughout day:</strong> Sip 120–240ml (4–8 fl oz) every hour; set hourly reminders.</li>
-              <li><strong>With meals:</strong> 240ml (8 fl oz) 30 minutes before; small sips during; avoid large amounts immediately after.</li>
-              <li><strong>Exercise / heat:</strong> Add 480–720ml (16–24 fl oz) for every 30 minutes of activity or hot weather.</li>
-              <li><strong>Evening:</strong> Taper intake 2 hours before bed to avoid nighttime bathroom trips; aim for 120–240ml (4–8 fl oz) only.</li>
+              <li><strong>With meals:</strong> 240ml (8 fl oz) 30 minutes before; small sips during; avoid large amounts
+                immediately after.</li>
+              <li><strong>Exercise / heat:</strong> Add 480–720ml (16–24 fl oz) for every 30 minutes of activity or hot
+                weather.</li>
+              <li><strong>Evening:</strong> Taper intake 2 hours before bed to avoid nighttime bathroom trips; aim for
+                120–240ml (4–8 fl oz) only.</li>
               <li><strong>Track total:</strong> Log daily intake; aim for 2–2.5 litres (64–80 fl oz) minimum.</li>
             </ul>
             <h4 style="margin-top: 14px; font-size: 15px; color: var(--brand);">Special Situations</h4>
             <ul class="card-points">
               <li><strong>Dose day:</strong> Prioritize hydration over food; sip ORS if water intake is very low.</li>
-              <li><strong>Vomiting episode:</strong> Wait 15–20 minutes after vomiting; start with 30ml (1 fl oz) ORS every 5 minutes; gradually increase.</li>
-              <li><strong>Hot weather:</strong> Increase baseline by 480–960ml (16–32 fl oz); avoid outdoor activity during peak heat (11 AM–3 PM).</li>
-              <li><strong>Air travel:</strong> Cabin air is very dry; drink 240ml (8 fl oz) every hour during flight; avoid alcohol and excess caffeine.</li>
-              <li><strong>Illness (cold, flu):</strong> Increase fluids by 25–50%; use ORS if fever or diarrhea present; consult clinician / GP.</li>
+              <li><strong>Vomiting episode:</strong> Wait 15–20 minutes after vomiting; start with 30ml (1 fl oz) ORS
+                every 5 minutes; gradually increase.</li>
+              <li><strong>Hot weather:</strong> Increase baseline by 480–960ml (16–32 fl oz); avoid outdoor activity
+                during peak heat (11 AM–3 PM).</li>
+              <li><strong>Air travel:</strong> Cabin air is very dry; drink 240ml (8 fl oz) every hour during flight;
+                avoid alcohol and excess caffeine.</li>
+              <li><strong>Illness (cold, flu):</strong> Increase fluids by 25–50%; use ORS if fever or diarrhea present;
+                consult clinician / GP.</li>
             </ul>
           </div>
         </article>
@@ -349,12 +424,8 @@
 
       <!-- AdSense Display Ad Unit -->
       <div class="ad-container display" aria-label="Advertisement">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5462334042904965"
-             data-ad-slot="1803793331"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+          data-ad-slot="1803793331" data-ad-format="auto" data-full-width-responsive="true"></ins>
       </div>
 
       <div class="shell section-head" style="margin-top: 48px;">
@@ -402,8 +473,10 @@
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: var(--brand);">Daily Total</h5>
           <ul class="tile-points">
             <li><strong>Grand total:</strong> 2.5–3.2 litres (85–108 fl oz) across 16 hours.</li>
-            <li><strong>Adjust down:</strong> If smaller body size, cooler climate, or lower activity (aim for 2–2.5 litres / 64–80 fl oz).</li>
-            <li><strong>Adjust up:</strong> If larger body size, hot climate, or high activity (aim for 3–3.5 litres / 100–120 fl oz).</li>
+            <li><strong>Adjust down:</strong> If smaller body size, cooler climate, or lower activity (aim for 2–2.5
+              litres / 64–80 fl oz).</li>
+            <li><strong>Adjust up:</strong> If larger body size, hot climate, or high activity (aim for 3–3.5 litres /
+              100–120 fl oz).</li>
           </ul>
         </div>
 
@@ -415,15 +488,18 @@
             <li><strong>Solution 1:</strong> Try room-temp or slightly warm water instead of ice-cold.</li>
             <li><strong>Solution 2:</strong> Add lemon, lime, or cucumber slices for mild flavour.</li>
             <li><strong>Solution 3:</strong> Switch to herbal tea (peppermint, ginger) or clear broth.</li>
-            <li><strong>Solution 4:</strong> Sip very small amounts (30ml / 1 fl oz) every 10 minutes instead of larger gulps.</li>
+            <li><strong>Solution 4:</strong> Sip very small amounts (30ml / 1 fl oz) every 10 minutes instead of larger
+              gulps.</li>
             <li><strong>Solution 5:</strong> Use ORS or coconut water (electrolytes can be easier to tolerate).</li>
           </ul>
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: #92400e;">Problem: "I forget to drink"</h5>
           <ul class="tile-points">
             <li><strong>Solution 1:</strong> Set hourly phone alarms with label "Drink water".</li>
-            <li><strong>Solution 2:</strong> Use hydration app with reminders and tracking (WaterMinder, Plant Nanny).</li>
+            <li><strong>Solution 2:</strong> Use hydration app with reminders and tracking (WaterMinder, Plant Nanny).
+            </li>
             <li><strong>Solution 3:</strong> Keep bottle visible (on desk, in car, by bed).</li>
-            <li><strong>Solution 4:</strong> Link hydration to existing habits (drink after bathroom, before checking phone).</li>
+            <li><strong>Solution 4:</strong> Link hydration to existing habits (drink after bathroom, before checking
+              phone).</li>
             <li><strong>Solution 5:</strong> Use marked bottle with time goals ("10 AM", "12 PM", etc.).</li>
           </ul>
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: #92400e;">Problem: "Too many bathroom trips"</h5>
@@ -431,12 +507,16 @@
             <li><strong>Solution 1:</strong> Spread intake evenly; avoid drinking 480ml+ (16+ fl oz) at once.</li>
             <li><strong>Solution 2:</strong> Taper fluids 2 hours before bed (only small sips if thirsty).</li>
             <li><strong>Solution 3:</strong> Reduce caffeine (diuretic effect increases urination).</li>
-            <li><strong>Solution 4:</strong> If urinating 10+ times daily with pale urine, slightly reduce total intake.</li>
-            <li><strong>Solution 5:</strong> Discuss with clinician / GP if frequency is disruptive (may indicate other issue).</li>
+            <li><strong>Solution 4:</strong> If urinating 10+ times daily with pale urine, slightly reduce total intake.
+            </li>
+            <li><strong>Solution 5:</strong> Discuss with clinician / GP if frequency is disruptive (may indicate other
+              issue).</li>
           </ul>
-          <h5 style="font-size: 14px; margin: 12px 0 6px; color: #92400e;">Problem: "Still dehydrated despite drinking"</h5>
+          <h5 style="font-size: 14px; margin: 12px 0 6px; color: #92400e;">Problem: "Still dehydrated despite drinking"
+          </h5>
           <ul class="tile-points">
-            <li><strong>Solution 1:</strong> Add ORS or electrolytes (water alone may not be enough if electrolytes are low).</li>
+            <li><strong>Solution 1:</strong> Add ORS or electrolytes (water alone may not be enough if electrolytes are
+              low).</li>
             <li><strong>Solution 2:</strong> Reduce caffeine and alcohol (both increase fluid loss).</li>
             <li><strong>Solution 3:</strong> Eat water-rich foods (watermelon, cucumber, oranges, soup).</li>
             <li><strong>Solution 4:</strong> Check medications with clinician / GP (some can cause dehydration).</li>
@@ -449,9 +529,11 @@
           <p style="margin-bottom: 12px; font-weight: 600;">Methods to monitor and optimize your fluid intake:</p>
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: #166534;">Physical Tools</h5>
           <ul class="tile-points">
-            <li><strong>Marked water bottle:</strong> Use bottle with ml/oz markings and time goals (e.g., Hidrate Spark, Contigo).</li>
+            <li><strong>Marked water bottle:</strong> Use bottle with ml/oz markings and time goals (e.g., Hidrate
+              Spark, Contigo).</li>
             <li><strong>Daily log sheet:</strong> Print or create simple chart: Time | Amount | Type | Urine Color.</li>
-            <li><strong>Rubber bands:</strong> Place 8 bands on bottle; move one to other end each time you finish and refill.</li>
+            <li><strong>Rubber bands:</strong> Place 8 bands on bottle; move one to other end each time you finish and
+              refill.</li>
             <li><strong>Visual reminders:</strong> Sticky notes on desk, fridge, bathroom mirror ("Drink water!").</li>
           </ul>
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: #166534;">Digital Tools</h5>
@@ -475,14 +557,18 @@
           <h4 style="color: #9f1239;">⚠️ When to Contact Clinician / GP</h4>
           <p style="margin-bottom: 12px; font-weight: 600;">Seek medical guidance if you experience:</p>
           <ul class="tile-points">
-            <li><strong>Persistent vomiting:</strong> Unable to keep fluids down for 12+ hours despite small sips of ORS.</li>
-            <li><strong>Severe dehydration signs:</strong> Very dark urine, extreme thirst, confusion, rapid heartbeat, sunken eyes.</li>
-            <li><strong>Fainting or near-fainting:</strong> Loss of consciousness or severe dizziness when standing.</li>
+            <li><strong>Persistent vomiting:</strong> Unable to keep fluids down for 12+ hours despite small sips of
+              ORS.</li>
+            <li><strong>Severe dehydration signs:</strong> Very dark urine, extreme thirst, confusion, rapid heartbeat,
+              sunken eyes.</li>
+            <li><strong>Fainting or near-fainting:</strong> Loss of consciousness or severe dizziness when standing.
+            </li>
             <li><strong>No urination:</strong> Haven't urinated in 8+ hours or less than 3 times in 24 hours.</li>
             <li><strong>Chest pain or palpitations:</strong> Irregular heartbeat, chest tightness, or pain at rest.</li>
             <li><strong>Extreme weakness:</strong> Unable to stand or walk without support.</li>
             <li><strong>Persistent headache:</strong> Severe headache not relieved by hydration and rest.</li>
-            <li><strong>Confusion or disorientation:</strong> Mental fog, difficulty thinking clearly, unusual behavior.</li>
+            <li><strong>Confusion or disorientation:</strong> Mental fog, difficulty thinking clearly, unusual behavior.
+            </li>
           </ul>
           <h5 style="font-size: 14px; margin: 12px 0 6px; color: #9f1239;">Emergency (Call 999/911)</h5>
           <ul class="tile-points">
@@ -494,19 +580,30 @@
         </div>
       </div>
 
-      <div class="shell" style="margin-top: 48px; padding: 24px; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 14px;">
+      <div class="shell"
+        style="margin-top: 48px; padding: 24px; background: #fffbeb; border: 1px solid #fcd34d; border-radius: 14px;">
         <h4 style="margin: 0 0 12px; color: #92400e;">💡 Pro Hydration Tips</h4>
         <ul class="detail-list" style="margin: 0; color: #78350f;">
-          <li><strong>Start strong:</strong> Drink 240–480ml (8–16 fl oz) within 1 hour of waking to rehydrate after sleep.</li>
-          <li><strong>Eat water-rich foods:</strong> Watermelon, cucumber, oranges, strawberries, lettuce, celery, soup (contribute to hydration).</li>
-          <li><strong>Pre-hydrate for exercise:</strong> Drink 480ml (16 fl oz) 1–2 hours before activity; 240ml (8 fl oz) 15 min before.</li>
-          <li><strong>Post-exercise rehydration:</strong> Drink 480–720ml (16–24 fl oz) for every 30 minutes of moderate activity.</li>
-          <li><strong>Use a straw:</strong> Some find sipping through a straw easier and less nausea-inducing than drinking from a glass.</li>
-          <li><strong>Flavor without sugar:</strong> Infuse water with cucumber, mint, lemon, lime, berries, or ginger (no added calories).</li>
-          <li><strong>Cold vs. warm:</strong> Experiment with temperature; some tolerate room-temp better, others prefer cold during nausea.</li>
-          <li><strong>Pair with food:</strong> Drink 30 min before meals (not during or immediately after) to avoid feeling too full.</li>
-          <li><strong>Travel prepared:</strong> Carry refillable bottle; refill at water fountains, cafes, or ask for tap water at restaurants.</li>
-          <li><strong>Monitor trends:</strong> Track hydration for 7 days; identify patterns and adjust strategy accordingly.</li>
+          <li><strong>Start strong:</strong> Drink 240–480ml (8–16 fl oz) within 1 hour of waking to rehydrate after
+            sleep.</li>
+          <li><strong>Eat water-rich foods:</strong> Watermelon, cucumber, oranges, strawberries, lettuce, celery, soup
+            (contribute to hydration).</li>
+          <li><strong>Pre-hydrate for exercise:</strong> Drink 480ml (16 fl oz) 1–2 hours before activity; 240ml (8 fl
+            oz) 15 min before.</li>
+          <li><strong>Post-exercise rehydration:</strong> Drink 480–720ml (16–24 fl oz) for every 30 minutes of moderate
+            activity.</li>
+          <li><strong>Use a straw:</strong> Some find sipping through a straw easier and less nausea-inducing than
+            drinking from a glass.</li>
+          <li><strong>Flavor without sugar:</strong> Infuse water with cucumber, mint, lemon, lime, berries, or ginger
+            (no added calories).</li>
+          <li><strong>Cold vs. warm:</strong> Experiment with temperature; some tolerate room-temp better, others prefer
+            cold during nausea.</li>
+          <li><strong>Pair with food:</strong> Drink 30 min before meals (not during or immediately after) to avoid
+            feeling too full.</li>
+          <li><strong>Travel prepared:</strong> Carry refillable bottle; refill at water fountains, cafes, or ask for
+            tap water at restaurants.</li>
+          <li><strong>Monitor trends:</strong> Track hydration for 7 days; identify patterns and adjust strategy
+            accordingly.</li>
         </ul>
       </div>
     </section>
@@ -514,23 +611,20 @@
 
   <!-- Anchor Ad - Mobile Bottom Sticky -->
   <div class="ad-anchor" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5462334042904965"
-         data-ad-slot="1803793331"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965" data-ad-slot="1803793331"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
   </div>
 
   <footer class="footer">
     <div class="shell footer-grid">
       <div>
         <p class="brand-name">GLP-1 Care Companion</p>
-        <p class="muted small">Educational resource. Not medical advice. Work with your clinician for dosing, prescriptions, and personal care.</p>
+        <p class="muted small">Educational resource. Not medical advice. Work with your clinician for dosing,
+          prescriptions, and personal care.</p>
       </div>
       <div class="footer-links">
         <a href="eating.html">Nausea-Smart Eating</a>
-        <a href="hydration.html">Hydration</a>
+        <a href="hydration.html" class="active">Hydration</a>
         <a href="muscle.html">Muscle & Metabolic</a>
         <a href="recipes.html">Easy Protein</a>
         <a href="tools.html">Tools</a>
@@ -544,7 +638,8 @@
       </div>
     </div>
     <div class="shell footer-note">
-      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician for medical guidance, dosing, or medication questions.</p>
+      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician
+        for medical guidance, dosing, or medication questions.</p>
     </div>
   </footer>
 
@@ -553,7 +648,9 @@
     <div class="cookie-consent-content">
       <div class="cookie-consent-text">
         <h4>🍪 We value your privacy</h4>
-        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#" onclick="return false;">Learn more</a></p>
+        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show
+          personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#"
+            onclick="return false;">Learn more</a></p>
       </div>
       <div class="cookie-consent-buttons">
         <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
@@ -566,5 +663,5 @@
   <script src="app.js" defer></script>
 
 </body>
-</html>
 
+</html>

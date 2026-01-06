@@ -25,18 +25,37 @@
 </head>
 
 <body class="blog-page">
-  <header class="dashboard-header" style="border-radius: 0;">
-    <div class="shell">
-      <div class="header-content">
-        <div class="greeting-box">
-          <p class="date-label">Daily Insights</p>
-          <h1>Lifestyle Library</h1>
-          <p class="lifestyle-quote">Building habits, one day at a time.</p>
+  <header class="site-header">
+    <div class="topbar-row">
+      <a href="index.html" class="brand-group">
+        <span class="logo-dot"></span>
+        <div class="brand-text">
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
         </div>
-      </div>
+      </a>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
     </div>
+    <nav class="nav">
+      <div class="nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">GLP-1 Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart Eating</a></li>
+          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="muscle.html">Muscle & Metabolic</a></li>
+          <li><a href="recipes.html">Easy Protein</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="food-scanner.html" id="nav-food-scanner">AI Food Scanner</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="checkin.html">Check-in</a></li>
+        </ul>
+      </div>
+    </nav>
   </header>
-
   <main class="shell" style="margin-top: 20px;">
     <!-- Category Filter -->
     <div class="blog-filters">
@@ -105,7 +124,7 @@
       <span class="icon">🏠</span>
       <label>Home</label>
     </a>
-    <a href="blog.html" class="nav-item active">
+    <a href="blog.html" class="active" class="nav-item active">
       <span class="icon">📖</span>
       <label>Insights</label>
     </a>
@@ -314,40 +333,37 @@
       </head>
 
       <body>
-        <header class="topbar">
-          <div class="shell topbar-row">
-            <div class="brand">
-              <span class="logo-dot"></span>
-              <div>
-                <p class="eyebrow">GLP-1 Care Companion</p>
-                <p class="brand-name">Support & Patterns Hub</p>
-              </div>
-            </div>
-            <form class="search">
-              <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
-              <button type="submit">Search</button>
-            </form>
-          </div>
-          <nav class="nav">
-            <div class="shell nav-row">
-              <ul class="nav-links">
-                <li><a href="index.html">Home</a></li>
-                <li><a href="updates.html">GLP-1 Updates</a></li>
-                <li><a href="eating.html">Nausea-Smart Eating</a></li>
-                <li><a href="hydration.html">Hydration</a></li>
-                <li><a href="muscle.html">Muscle & Metabolic</a></li>
-                <li><a href="recipes.html">Easy Protein</a></li>
-                <li><a href="tools.html">Tools</a></li>
-                <li><a href="blog.html" class="active">Blog</a></li>
-                <li><a href="checkin.html">Check-in</a></li>
-              </ul>
-              <button class="nav-toggle" aria-label="Toggle navigation">
-                <span></span><span></span><span></span>
-              </button>
-            </div>
-          </nav>
-        </header>
-
+  <header class="site-header">
+    <div class="topbar-row">
+      <a href="index.html" class="brand-group">
+        <span class="logo-dot"></span>
+        <div class="brand-text">
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
+        </div>
+      </a>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="nav">
+      <div class="nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">GLP-1 Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart Eating</a></li>
+          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="muscle.html">Muscle & Metabolic</a></li>
+          <li><a href="recipes.html">Easy Protein</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="food-scanner.html" id="nav-food-scanner">AI Food Scanner</a></li>
+          <li><a href="blog.html" class="active">Blog</a></li>
+          <li><a href="checkin.html">Check-in</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
         <main>
           <section class="blog-header-section">
             <div class="shell">
@@ -574,7 +590,7 @@
               <a href="muscle.html">Muscle & Metabolic</a>
               <a href="recipes.html">Easy Protein</a>
               <a href="tools.html">Tools</a>
-              <a href="blog.html">Blog</a>
+              <a href="blog.html" class="active">Blog</a>
               <a href="checkin.html">Check-in</a>
             </div>
             <div class="footer-links">

@@ -1,22 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Free GLP-1 Calculators & Tools | Protein, Hydration & Meal Planners</title>
-  
+
   <!-- SEO Meta Tags -->
-  <meta name="description" content="Free interactive GLP-1 tools: protein calculator, hydration tracker, meal timing planner for Ozempic, Wegovy & Mounjaro users." />
-  <meta name="keywords" content="GLP-1 calculator, protein calculator, hydration tracker, meal planner, Ozempic tools, Wegovy calculator" />
+  <meta name="description"
+    content="Free interactive GLP-1 tools: protein calculator, hydration tracker, meal timing planner for Ozempic, Wegovy & Mounjaro users." />
+  <meta name="keywords"
+    content="GLP-1 calculator, protein calculator, hydration tracker, meal planner, Ozempic tools, Wegovy calculator" />
   <link rel="canonical" href="https://glp-1tracker.netlify.app/tools.html" />
-  
+
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
-  
+
   <style>
     .tool-card {
       background: #fff;
@@ -24,26 +29,26 @@
       border-radius: 12px;
       padding: 28px;
       margin-bottom: 32px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
     }
-    
+
     .tool-card h3 {
       color: #10b981;
       margin-bottom: 16px;
       font-size: 1.5rem;
     }
-    
+
     .input-group {
       margin-bottom: 20px;
     }
-    
+
     .input-group label {
       display: block;
       font-weight: 600;
       margin-bottom: 8px;
       color: #1f2937;
     }
-    
+
     .input-group input,
     .input-group select {
       width: 100%;
@@ -53,14 +58,14 @@
       font-size: 1rem;
       font-family: inherit;
     }
-    
+
     .input-group input:focus,
     .input-group select:focus {
       outline: none;
       border-color: #10b981;
       box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
     }
-    
+
     .calc-btn {
       background: #10b981;
       color: #fff;
@@ -72,12 +77,12 @@
       cursor: pointer;
       transition: all 0.2s;
     }
-    
+
     .calc-btn:hover {
       background: #059669;
       transform: translateY(-2px);
     }
-    
+
     .result-box {
       background: #d1fae5;
       border: 2px solid #10b981;
@@ -86,47 +91,55 @@
       margin-top: 24px;
       display: none;
     }
-    
+
     .result-box.show {
       display: block;
       animation: fadeIn 0.3s ease;
     }
-    
+
     .result-box h4 {
       color: #065f46;
       margin-bottom: 12px;
     }
-    
+
     .result-value {
       font-size: 2rem;
       font-weight: 700;
       color: #10b981;
       margin: 8px 0;
     }
-    
+
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(-10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(-10px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
+
 <body>
-  <header class="topbar">
-    <div class="shell topbar-row">
-      <div class="brand">
+  <header class="site-header">
+    <div class="topbar-row">
+      <a href="index.html" class="brand-group">
         <span class="logo-dot"></span>
-        <div>
+        <div class="brand-text">
           <p class="eyebrow">GLP-1 Care Companion</p>
           <p class="brand-name">Support & Patterns Hub</p>
         </div>
-      </div>
+      </a>
       <form class="search">
         <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
         <button type="submit">Search</button>
       </form>
     </div>
     <nav class="nav">
-      <div class="shell nav-row">
+      <div class="nav-row">
         <ul class="nav-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="updates.html">GLP-1 Updates</a></li>
@@ -135,83 +148,66 @@
           <li><a href="muscle.html">Muscle & Metabolic</a></li>
           <li><a href="recipes.html">Easy Protein</a></li>
           <li><a href="tools.html" class="active">Tools</a></li>
+          <li><a href="food-scanner.html" id="nav-food-scanner">AI Food Scanner</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="checkin.html">Check-in</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Toggle navigation">
-          <span></span><span></span><span></span>
-        </button>
       </div>
     </nav>
   </header>
-
   <main>
     <section class="section">
       <div class="shell">
         <div class="section-head">
           <p class="eyebrow">Interactive calculators</p>
           <h1>GLP-1 Support Tools</h1>
-          <p class="lede">Free calculators and planners to help you stay on track with protein, hydration, and meal timing.</p>
+          <p class="lede">Free calculators and planners to help you stay on track with protein, hydration, and meal
+            timing.</p>
         </div>
 
         <!-- AI Assistant -->
         <div class="ai-panel" style="margin-bottom: 20px;">
           <div class="ai-badge">AI Assistant (Non-medical)</div>
           <h3>Need a quick plan?</h3>
-          <p>Ask for a supportive, non-medical summary—hydration pacing, protein timing, or nausea-friendly tweaks.</p>
-          <form class="ai-form" data-output="aiToolsOutput">
-            <textarea placeholder="e.g., Build me a day of small meals with 100g protein and hydration reminders" required></textarea>
-            <button type="submit">Ask</button>
-          </form>
+          <p>Get a supportive, non-medical summary using our AI Food Scanner—hydration pacing, protein timing, or
+            nausea-friendly tweaks.</p>
+          <div class="cta-row" style="margin: 20px 0;">
+            <a href="food-scanner.html" class="calc-btn" style="text-decoration: none; display: inline-block;">Open AI
+              Food Scanner</a>
+          </div>
           <div class="ai-disclaimer">Educational only. Not medical advice. Follow your clinician.</div>
-          <div class="ai-output" id="aiToolsOutput"></div>
         </div>
 
         <!-- New Ad Unit - Slot 2634509333 -->
         <div class="ad-container display" style="margin: 30px 0;" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="2634509333"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+            data-ad-slot="2634509333" data-ad-format="auto" data-full-width-responsive="true"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
 
         <!-- AdSense Display Ad Unit -->
         <div class="ad-container display" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="1803793331"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+            data-ad-slot="1803793331" data-ad-format="auto" data-full-width-responsive="true"></ins>
         </div>
 
         <!-- New Fluid Ad Unit - Slot 3055157642 -->
         <div class="ad-container display" style="margin: 30px 0;" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-format="fluid"
-               data-ad-layout-key="-6e+c9+1y-16+b1"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="3055157642"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-format="fluid" data-ad-layout-key="-6e+c9+1y-16+b1"
+            data-ad-client="ca-pub-5462334042904965" data-ad-slot="3055157642"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
 
         <!-- New Autorelaxed Ad Unit - Slot 8816774303 -->
         <div class="ad-container display" style="margin: 30px 0;" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-format="autorelaxed"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="8816774303"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+            data-ad-client="ca-pub-5462334042904965" data-ad-slot="8816774303"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
 
@@ -219,12 +215,12 @@
         <div class="tool-card">
           <h3>💪 Daily Protein Calculator</h3>
           <p>Calculate your optimal daily protein intake based on your weight and activity level.</p>
-          
+
           <div class="input-group">
             <label for="weight">Your Weight</label>
             <input type="number" id="weight" placeholder="70" min="30" max="300">
           </div>
-          
+
           <div class="input-group">
             <label for="weightUnit">Weight Unit</label>
             <select id="weightUnit">
@@ -232,7 +228,7 @@
               <option value="lbs">Pounds (lbs)</option>
             </select>
           </div>
-          
+
           <div class="input-group">
             <label for="activity">Activity Level</label>
             <select id="activity">
@@ -242,15 +238,16 @@
               <option value="1.8">Very active (hard exercise 6-7 days/week)</option>
             </select>
           </div>
-          
+
           <button class="calc-btn" onclick="calculateProtein()">Calculate Protein Need</button>
-          
+
           <div class="result-box" id="proteinResult">
             <h4>Your Daily Protein Target:</h4>
             <div class="result-value" id="proteinValue"></div>
             <p id="proteinDetails"></p>
             <p style="margin-top: 12px; font-size: 0.9rem; color: #065f46;">
-              <strong>Pro Tip:</strong> Spread this across 4-6 small meals (20-30g per meal) to minimize nausea on GLP-1 medications.
+              <strong>Pro Tip:</strong> Spread this across 4-6 small meals (20-30g per meal) to minimize nausea on GLP-1
+              medications.
             </p>
           </div>
         </div>
@@ -259,12 +256,12 @@
         <div class="tool-card">
           <h3>💧 Daily Hydration Calculator</h3>
           <p>Calculate your minimum daily water intake based on body weight and activity.</p>
-          
+
           <div class="input-group">
             <label for="hydrationWeight">Your Weight</label>
             <input type="number" id="hydrationWeight" placeholder="70" min="30" max="300">
           </div>
-          
+
           <div class="input-group">
             <label for="hydrationUnit">Weight Unit</label>
             <select id="hydrationUnit">
@@ -272,7 +269,7 @@
               <option value="lbs">Pounds (lbs)</option>
             </select>
           </div>
-          
+
           <div class="input-group">
             <label for="hydrationActivity">Exercise Today?</label>
             <select id="hydrationActivity">
@@ -282,9 +279,9 @@
               <option value="1000">Intense exercise (> 60 min)</option>
             </select>
           </div>
-          
+
           <button class="calc-btn" onclick="calculateHydration()">Calculate Water Need</button>
-          
+
           <div class="result-box" id="hydrationResult">
             <h4>Your Daily Water Target:</h4>
             <div class="result-value" id="hydrationValue"></div>
@@ -299,17 +296,17 @@
         <div class="tool-card">
           <h3>⏰ Meal Timing Planner</h3>
           <p>Plan your ideal meal schedule to minimize nausea and maintain energy.</p>
-          
+
           <div class="input-group">
             <label for="wakeTime">What time do you wake up?</label>
             <input type="time" id="wakeTime" value="07:00">
           </div>
-          
+
           <div class="input-group">
             <label for="sleepTime">What time do you go to bed?</label>
             <input type="time" id="sleepTime" value="22:00">
           </div>
-          
+
           <div class="input-group">
             <label for="mealCount">How many meals per day?</label>
             <select id="mealCount">
@@ -318,9 +315,9 @@
               <option value="6">6 meals (maximum frequency)</option>
             </select>
           </div>
-          
+
           <button class="calc-btn" onclick="planMeals()">Generate Meal Schedule</button>
-          
+
           <div class="result-box" id="mealResult">
             <h4>Your Personalized Meal Schedule:</h4>
             <div id="mealSchedule"></div>
@@ -329,14 +326,10 @@
 
         <!-- AdSense Ad Unit -->
         <div style="margin: 40px 0; text-align: center; padding: 20px 0;">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="1803793331"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+            data-ad-slot="1803793331" data-ad-format="auto" data-full-width-responsive="true"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
 
@@ -344,7 +337,8 @@
         <div class="lead-magnet" style="margin-top: 12px;">
           <div>
             <h3 style="margin: 0;">📧 Get the 7-day nausea-safe meal plan</h3>
-            <p style="margin: 4px 0 0; opacity: 0.9;">Free PDF + weekly GLP-1 tips on hydration, protein pacing, and nausea relief.</p>
+            <p style="margin: 4px 0 0; opacity: 0.9;">Free PDF + weekly GLP-1 tips on hydration, protein pacing, and
+              nausea relief.</p>
           </div>
           <form id="toolsEmailForm">
             <input type="email" name="email" placeholder="you@email.com" required>
@@ -359,12 +353,8 @@
 
   <!-- Anchor Ad - Mobile Bottom Sticky -->
   <div class="ad-anchor" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5462334042904965"
-         data-ad-slot="1803793331"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965" data-ad-slot="1803793331"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
   </div>
 
   <footer class="footer">
@@ -376,7 +366,7 @@
         <a href="hydration.html">Hydration</a>
         <a href="muscle.html">Muscle & Metabolic</a>
         <a href="recipes.html">Easy Protein</a>
-        <a href="tools.html">Tools</a>
+        <a href="tools.html" class="active">Tools</a>
         <a href="blog.html">Blog</a>
         <a href="checkin.html">Check-in</a>
       </div>
@@ -387,7 +377,8 @@
       </div>
     </div>
     <div class="shell footer-note">
-      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician for medical guidance, dosing, or medication questions.</p>
+      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your physician
+        for medical guidance, dosing, or medication questions.</p>
     </div>
   </footer>
 
@@ -396,7 +387,9 @@
     <div class="cookie-consent-content">
       <div class="cookie-consent-text">
         <h4>🍪 We value your privacy</h4>
-        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#" onclick="return false;">Learn more</a></p>
+        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show
+          personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#"
+            onclick="return false;">Learn more</a></p>
       </div>
       <div class="cookie-consent-buttons">
         <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
@@ -417,5 +410,5 @@
   </script>
   <script src="tools.js" defer></script>
 </body>
-</html>
 
+</html>

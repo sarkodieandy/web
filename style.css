@@ -40,65 +40,92 @@ h3 {
   margin: 0;
 }
 
-/* Dashboard Header */
-.dashboard-header {
-  padding: 40px 0 30px;
-  background: linear-gradient(135deg, var(--brand), hsl(160, 40%, 35%));
-  color: #fff;
-  border-radius: 0 0 32px 32px;
+/* Site Header & Navigation */
+.site-header {
+  background: var(--glass);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--line);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: all 0.3s ease;
 }
 
-.header-content {
+.topbar-row {
   display: flex;
   justify-content: space-between;
-  align-items: flex-start;
+  align-items: center;
+  padding: 12px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.greeting-box h1 {
-  font-size: 2rem;
-  margin-top: 4px;
+.brand-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: var(--ink);
 }
 
-.date-label {
-  font-size: 0.85rem;
-  opacity: 0.9;
+.brand-text p {
+  margin: 0;
+  line-height: 1.2;
+}
+
+.brand-text .eyebrow {
+  font-size: 0.65rem;
   text-transform: uppercase;
   letter-spacing: 1px;
-}
-
-.lifestyle-quote {
-  font-size: 0.95rem;
-  margin-top: 10px;
-  opacity: 0.9;
-  font-style: italic;
-}
-
-.snapshot-row {
-  display: flex;
-  gap: 15px;
-  margin-top: 15px;
-}
-
-.snap-item {
-  background: rgba(255, 255, 255, 0.15);
-  padding: 6px 12px;
-  border-radius: 12px;
-  font-size: 0.85rem;
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-}
-
-.streak-mini {
-  background: rgba(255, 255, 255, 0.2);
-  padding: 8px 14px;
-  border-radius: 20px;
-  backdrop-filter: blur(8px);
-  display: flex;
-  align-items: center;
-  gap: 6px;
+  color: var(--brand);
   font-weight: 700;
+}
+
+.brand-text .brand-name {
+  font-weight: 800;
+  font-size: 1.1rem;
+  font-family: 'Outfit', sans-serif;
+}
+
+.nav {
+  border-top: 1px solid var(--line);
+  padding: 8px 0;
+}
+
+.nav-row {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 0;
+  margin: 0;
+  flex-wrap: wrap;
+}
+
+.nav-links::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: var(--brand);
+  border-color: var(--brand);
 }
 
 /* Dashboard Main */

@@ -14,13 +14,37 @@
 </head>
 
 <body class="subpage">
-    <header class="sub-header">
-        <div class="shell">
-            <a href="index.html" class="back-link">← Dashboard</a>
-            <h1>Food Scanner</h1>
+  <header class="site-header">
+    <div class="topbar-row">
+      <a href="index.html" class="brand-group">
+        <span class="logo-dot"></span>
+        <div class="brand-text">
+          <p class="eyebrow">GLP-1 Care Companion</p>
+          <p class="brand-name">Support & Patterns Hub</p>
         </div>
-    </header>
-
+      </a>
+      <form class="search">
+        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+        <button type="submit">Search</button>
+      </form>
+    </div>
+    <nav class="nav">
+      <div class="nav-row">
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="updates.html">GLP-1 Updates</a></li>
+          <li><a href="eating.html">Nausea-Smart Eating</a></li>
+          <li><a href="hydration.html">Hydration</a></li>
+          <li><a href="muscle.html">Muscle & Metabolic</a></li>
+          <li><a href="recipes.html">Easy Protein</a></li>
+          <li><a href="tools.html">Tools</a></li>
+          <li><a href="food-scanner.html" class="active" id="nav-food-scanner">AI Food Scanner</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="checkin.html">Check-in</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
     <main class="shell">
         <section class="scanner-container">
             <div class="camera-preview" id="cameraPreview">
@@ -65,24 +89,6 @@
         </section>
     </main>
 
-    <nav class="mobile-nav">
-        <a href="index.html" class="nav-item">
-            <span class="icon">🏠</span>
-            <label>Home</label>
-        </a>
-        <a href="blog.html" class="nav-item">
-            <span class="icon">📖</span>
-            <label>Insights</label>
-        </a>
-        <a href="food-scanner.html" class="nav-item active">
-            <span class="icon">🔍</span>
-            <label>Scanner</label>
-        </a>
-        <a href="about.html" class="nav-item">
-            <span class="icon">✨</span>
-            <label>About</label>
-        </a>
-    </nav>
 
     <style>
         .subpage {
