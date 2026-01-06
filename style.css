@@ -12,7 +12,8 @@
   /* Mobile-first container width */
   --radius: 18px;
   --shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  --glass: rgba(255, 255, 255, 0.7);
+  --glass: rgba(255, 255, 255, 0.75);
+  --shadow-text: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 
 /* Layout & Shell */
@@ -38,6 +39,11 @@ h3 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   margin: 0;
+  text-shadow: var(--shadow-text);
+}
+
+h1 {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 /* Site Header & Navigation */

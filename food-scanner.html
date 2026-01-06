@@ -14,37 +14,37 @@
 </head>
 
 <body class="subpage">
-  <header class="site-header">
-    <div class="topbar-row">
-      <a href="index.html" class="brand-group">
-        <span class="logo-dot"></span>
-        <div class="brand-text">
-          <p class="eyebrow">GLP-1 Care Companion</p>
-          <p class="brand-name">Support & Patterns Hub</p>
+    <header class="site-header">
+        <div class="topbar-row">
+            <a href="index.html" class="brand-group">
+                <span class="logo-dot"></span>
+                <div class="brand-text">
+                    <p class="eyebrow">GLP-1 Care Companion</p>
+                    <p class="brand-name">Support & Patterns Hub</p>
+                </div>
+            </a>
+            <form class="search">
+                <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
+                <button type="submit">Search</button>
+            </form>
         </div>
-      </a>
-      <form class="search">
-        <input type="search" placeholder="Search GLP-1 topics..." aria-label="Search GLP-1 topics">
-        <button type="submit">Search</button>
-      </form>
-    </div>
-    <nav class="nav">
-      <div class="nav-row">
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="updates.html">GLP-1 Updates</a></li>
-          <li><a href="eating.html">Nausea-Smart Eating</a></li>
-          <li><a href="hydration.html">Hydration</a></li>
-          <li><a href="muscle.html">Muscle & Metabolic</a></li>
-          <li><a href="recipes.html">Easy Protein</a></li>
-          <li><a href="tools.html">Tools</a></li>
-          <li><a href="food-scanner.html" class="active" id="nav-food-scanner">AI Food Scanner</a></li>
-          <li><a href="blog.html">Blog</a></li>
-          <li><a href="checkin.html">Check-in</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+        <nav class="nav">
+            <div class="nav-row">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="updates.html">GLP-1 Updates</a></li>
+                    <li><a href="eating.html">Nausea-Smart Eating</a></li>
+                    <li><a href="hydration.html">Hydration</a></li>
+                    <li><a href="muscle.html">Muscle & Metabolic</a></li>
+                    <li><a href="recipes.html">Easy Protein</a></li>
+                    <li><a href="tools.html">Tools</a></li>
+                    <li><a href="food-scanner.html" class="active" id="nav-food-scanner">AI Food Scanner</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="checkin.html">Check-in</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
     <main class="shell">
         <section class="scanner-container">
             <div class="camera-preview" id="cameraPreview">
@@ -53,6 +53,10 @@
                 <canvas id="captureCanvas" style="display: none;"></canvas>
                 <div class="scanner-overlay"></div>
                 <div class="instruction">Point at your meal or upload a photo</div>
+                <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+                    <div class="spinner"></div>
+                    <p>Analyzing with AI...</p>
+                </div>
                 <input type="file" id="imageUpload" accept="image/*" style="display: none;">
             </div>
 
@@ -194,13 +198,32 @@
             white-space: nowrap;
         }
 
-        .mandatory-disclaimer {
-            font-size: 0.75rem;
-            color: var(--muted);
-            font-style: italic;
-            border-top: 1px solid var(--line);
-            padding-top: 12px;
-            margin-top: 15px;
+        .loading-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+            backdrop-filter: blur(4px);
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 12px;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
         }
     </style>
 
@@ -264,7 +287,8 @@
                 return;
             }
 
-            captureBtn.textContent = "Analyzing...";
+            const loadingOverlay = document.getElementById('loadingOverlay');
+            loadingOverlay.style.display = 'flex';
             captureBtn.disabled = true;
 
             try {
@@ -281,10 +305,11 @@
                 AIService.incrementScanCount();
                 updateLimitUI();
             } catch (error) {
-                alert("Something went wrong with the scan. Please try again.");
+                alert("Something went wrong with the scan. Please ensure you are connected to the internet and try again.");
                 console.error(error);
             } finally {
                 captureBtn.disabled = false;
+                loadingOverlay.style.display = 'none';
                 updateLimitUI();
             }
         };
@@ -304,6 +329,24 @@
         uploadBtn.addEventListener('click', () => uploadInput.click());
         uploadInput.addEventListener('change', processUpload);
     </script>
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-item">
+            <span class="icon">🏠</span>
+            <label>Home</label>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="icon">📖</span>
+            <label>Insights</label>
+        </a>
+        <a href="food-scanner.html" class="nav-item">
+            <span class="icon">🔍</span>
+            <label>Scanner</label>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="icon">✨</span>
+            <label>About</label>
+        </a>
+    </nav>
 </body>
 
 </html>
