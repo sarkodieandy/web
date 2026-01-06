@@ -76,9 +76,9 @@ function handleAnchorAd() {
         document.body.classList.remove('has-anchor-ad');
       }
     });
-    
+
     observer.observe(anchorAd, { childList: true, subtree: true });
-    
+
     // Also check after a delay for async loading
     setTimeout(() => {
       const adContent = anchorAd.querySelector('ins iframe, ins > div');
@@ -341,6 +341,23 @@ document.addEventListener("DOMContentLoaded", () => {
       if (e.key === "ArrowLeft") prevHeroSlide();
     });
   }
+
+  // Lazy loading image handler
+  const lazyImages = document.querySelectorAll('img[loading="lazy"]');
+  const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        if (img.complete) {
+          img.classList.add('loaded');
+        } else {
+          img.addEventListener('load', () => img.classList.add('loaded'));
+        }
+        observer.unobserve(img);
+      }
+    });
+  });
+  lazyImages.forEach(img => observer.observe(img));
 });
 
 // Register Service Worker for PWA

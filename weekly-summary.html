@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Weekly Summary | Lifestyle Companion</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="subpage">
+    <header class="sub-header">
+        <div class="shell">
+            <a href="index.html" class="back-link">← Dashboard</a>
+            <h1>Weekly Summary</h1>
+        </div>
+    </header>
+
+    <main class="shell">
+        <section class="summary-container">
+            <div class="card summary-hero">
+                <div class="card-head">
+                    <h2>Great week so far!</h2>
+                </div>
+                <p class="muted">You've maintained your rhythm for <span id="summaryStreak">--</span> days.</p>
+            </div>
+
+            <div class="card report-card">
+                <h3>Consistency Overview</h3>
+                <div class="report-grid">
+                    <div class="report-item">
+                        <label>Hydration</label>
+                        <div class="val">88%</div>
+                        <div class="mini-bar">
+                            <div class="fill" style="width: 88%"></div>
+                        </div>
+                    </div>
+                    <div class="report-item">
+                        <label>Check-Ins</label>
+                        <div class="val">100%</div>
+                        <div class="mini-bar">
+                            <div class="fill" style="width: 100%"></div>
+                        </div>
+                    </div>
+                </div>
+                <p class="track-disclaimer" style="margin-top: 20px;">Tracking tools are for personal lifestyle
+                    awareness only.</p>
+            </div>
+
+            <div class="card trend-card">
+                <h3>Weight Lifestyle Trend</h3>
+                <div style="height: 150px;"><canvas id="weeklyTrend"></canvas></div>
+                <p class="gentle-note">Focus on the pattern, not the number.</p>
+            </div>
+
+            <div class="ad-slot-labeled">
+                <span class="ad-tag">Advertisement</span>
+                <div class="ad-content">Your rhythm, your journey.</div>
+            </div>
+        </section>
+    </main>
+
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-item">
+            <span class="icon">🏠</span>
+            <label>Home</label>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="icon">📖</span>
+            <label>Insights</label>
+        </a>
+        <a href="food-scanner.html" class="nav-item">
+            <span class="icon">🔍</span>
+            <label>Scanner</label>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="icon">✨</span>
+            <label>About</label>
+        </a>
+    </nav>
+
+    <style>
+        .subpage {
+            background: #f8fafc;
+        }
+
+        .sub-header {
+            background: #fff;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: var(--brand);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .summary-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .report-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .report-item label {
+            font-size: 0.75rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .report-item .val {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--ink);
+            margin: 4px 0;
+        }
+
+        .mini-bar {
+            height: 4px;
+            background: var(--line);
+            border-radius: 2px;
+        }
+
+        .mini-bar .fill {
+            height: 100%;
+            background: var(--brand);
+            border-radius: 2px;
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const streak = JSON.parse(localStorage.getItem('streak_count')) || 0;
+            document.getElementById('summaryStreak').textContent = streak;
+
+            const weightData = JSON.parse(localStorage.getItem('weight_history')) || [195, 194, 194.5, 193, 192];
+            const ctx = document.getElementById('weeklyTrend').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['S', 'M', 'T', 'W', 'T', 'F', 'S'],
+                    datasets: [{
+                        data: weightData,
+                        borderColor: '#10b981',
+                        borderWidth: 3,
+                        tension: 0.4,
+                        pointRadius: 0,
+                        fill: false
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: { x: { display: false }, y: { display: false } },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

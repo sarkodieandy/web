@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Meal Ideas | Lifestyle Awareness</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Outfit:wght@500;600;700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="subpage">
+    <header class="sub-header">
+        <div class="shell">
+            <a href="index.html" class="back-link">← Dashboard</a>
+            <h1>Meal Ideas Generator</h1>
+        </div>
+    </header>
+
+    <main class="shell">
+        <section class="generator-container">
+            <div class="card intro-card">
+                <div class="ai-badge">AI Ideas</div>
+                <h2>What should I eat today?</h2>
+                <p class="muted">Generate simple, small-portion friendly ideas based on lifestyle awareness.</p>
+            </div>
+
+            <div class="card settings-card">
+                <div class="card-head">
+                    <h3>Preferences</h3>
+                </div>
+                <div class="pref-tabs">
+                    <button class="pref-btn active" data-pref="light">Light</button>
+                    <button class="pref-btn" data-pref="protein">High Protein</button>
+                    <button class="pref-btn" data-pref="snack">Small Snack</button>
+                </div>
+                <button class="btn-primary" id="generatePageBtn" style="margin-top: 15px;">Generate Ideas</button>
+            </div>
+
+            <div id="mealResults" class="results-grid">
+                <!-- Results will appear here -->
+            </div>
+
+            <p class="track-disclaimer" style="text-align: center;">AI-generated content is informational only and
+                should not be considered professional advice.</p>
+        </section>
+
+        <!-- Advertisement after Generator -->
+        <div class="ad-slot-labeled">
+            <span class="ad-tag">Advertisement</span>
+            <div class="ad-content">
+                <p>Balanced living, simplified.</p>
+            </div>
+        </div>
+    </main>
+
+    <nav class="mobile-nav">
+        <a href="index.html" class="nav-item">
+            <span class="icon">🏠</span>
+            <label>Home</label>
+        </a>
+        <a href="blog.html" class="nav-item">
+            <span class="icon">📖</span>
+            <label>Insights</label>
+        </a>
+        <a href="food-scanner.html" class="nav-item">
+            <span class="icon">🔍</span>
+            <label>Scanner</label>
+        </a>
+        <a href="about.html" class="nav-item">
+            <span class="icon">✨</span>
+            <label>About</label>
+        </a>
+    </nav>
+
+    <style>
+        .subpage {
+            background: #f8fafc;
+        }
+
+        .sub-header {
+            background: #fff;
+            padding: 30px 0 20px;
+            border-bottom: 1px solid var(--line);
+            margin-bottom: 20px;
+        }
+
+        .back-link {
+            color: var(--brand);
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .generator-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .intro-card h2 {
+            margin-bottom: 8px;
+        }
+
+        .pref-tabs {
+            display: flex;
+            gap: 10px;
+            margin: 10px 0;
+        }
+
+        .pref-btn {
+            flex: 1;
+            padding: 10px 5px;
+            border-radius: 10px;
+            border: 1px solid var(--line);
+            background: #fff;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--muted);
+            cursor: pointer;
+        }
+
+        .pref-btn.active {
+            background: var(--brand);
+            color: #fff;
+            border-color: var(--brand);
+        }
+
+        .meal-item {
+            background: #fff;
+            padding: 20px;
+            border-radius: 18px;
+            border: 1px solid var(--line);
+            box-shadow: var(--shadow);
+            animation: slideIn 0.4s ease forwards;
+            opacity: 0;
+            transform: translateY(10px);
+        }
+
+        .meal-item h4 {
+            color: var(--brand);
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .meal-item p {
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+
+        .results-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+
+    <script type="module">
+        import AIService from './ai-service.js';
+
+        const generateBtn = document.getElementById('generatePageBtn');
+        const resultsGrid = document.getElementById('mealResults');
+        const prefBtns = document.querySelectorAll('.pref-btn');
+
+        prefBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                prefBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+
+        generateBtn.addEventListener('click', async () => {
+            const activePref = document.querySelector('.pref-btn.active').dataset.pref;
+
+            resultsGrid.innerHTML = '';
+            generateBtn.textContent = "Connecting to AI...";
+            generateBtn.disabled = true;
+
+            try {
+                const meals = await AIService.generateMealIdeas(activePref);
+
+                resultsGrid.innerHTML = '';
+                meals.forEach((meal, idx) => {
+                    const div = document.createElement('div');
+                    div.className = 'meal-item';
+                    div.style.animationDelay = `${idx * 0.1}s`;
+                    div.innerHTML = `
+                    <h4>${meal.title}</h4>
+                    <p>${meal.desc}</p>
+                `;
+                    resultsGrid.appendChild(div);
+                });
+                generateBtn.textContent = "Generate More";
+            } catch (error) {
+                alert("Unable to reach AI companion right now. Please try again soon.");
+                generateBtn.textContent = "Try Again";
+            } finally {
+                generateBtn.disabled = false;
+            }
+        });
+    </script>
+</body>
+
+</html>
