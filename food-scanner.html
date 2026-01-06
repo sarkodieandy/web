@@ -227,107 +227,108 @@
         }
     </style>
 
-    <script type="module">
-        import AIService from './ai-service.js';
+    <script src="ai-service.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const captureBtn = document.getElementById('captureBtn');
+            const uploadBtn = document.getElementById('uploadBtn');
+            const uploadInput = document.getElementById('uploadInput');
+            const video = document.getElementById('videoFeed');
+            const canvas = document.getElementById('captureCanvas');
+            const resultCard = document.getElementById('scannerResult');
+            const foodName = document.getElementById('foodName');
+            const foodDesc = document.getElementById('foodDesc');
+            const lifestyleNote = document.getElementById('lifestyleNote');
+            const similarList = document.getElementById('similarList');
 
-        const captureBtn = document.getElementById('captureBtn');
-        const uploadBtn = document.getElementById('uploadBtn');
-        const uploadInput = document.getElementById('uploadInput');
-        const video = document.getElementById('videoFeed');
-        const canvas = document.getElementById('captureCanvas');
-        const resultCard = document.getElementById('scannerResult');
-        const foodName = document.getElementById('foodName');
-        const foodDesc = document.getElementById('foodDesc');
-        const lifestyleNote = document.getElementById('lifestyleNote');
-        const similarList = document.getElementById('similarList');
-
-        // Initialize Camera
-        async function initCamera() {
-            try {
-                const stream = await navigator.mediaDevices.getUserMedia({
-                    video: { facingMode: 'environment' },
-                    audio: false
-                });
-                video.srcObject = stream;
-            } catch (err) {
-                console.error("Camera access denied:", err);
-                document.querySelector('.instruction').textContent = "Camera access denied. Please use the upload button.";
+            // Initialize Camera
+            async function initCamera() {
+                try {
+                    const stream = await navigator.mediaDevices.getUserMedia({
+                        video: { facingMode: 'environment' },
+                        audio: false
+                    });
+                    video.srcObject = stream;
+                } catch (err) {
+                    console.error("Camera access denied:", err);
+                    document.querySelector('.instruction').textContent = "Camera unavailable or access denied. Please use the upload button.";
+                }
             }
-        }
 
-        initCamera();
+            initCamera();
 
-        const updateLimitUI = () => {
-            const { remaining } = AIService.checkScanLimit();
-            captureBtn.innerHTML = `Capture <small style="display:block; opacity:0.7;">${remaining} left</small>`;
-            if (remaining <= 0) {
-                captureBtn.disabled = true;
-                captureBtn.style.opacity = '0.5';
-            }
-        };
-
-        updateLimitUI();
-
-        const processUpload = async (event) => {
-            const file = event.target.files[0];
-            if (!file) return;
-
-            const reader = new FileReader();
-            reader.onload = async (e) => {
-                const base64 = e.target.result;
-                performAnalysis(base64);
+            const updateLimitUI = () => {
+                const { remaining } = AIService.checkScanLimit();
+                captureBtn.innerHTML = `Take Photo <small style="display:block; opacity:0.7;">${remaining} left</small>`;
+                if (remaining <= 0) {
+                    captureBtn.disabled = true;
+                    captureBtn.style.opacity = '0.5';
+                }
             };
-            reader.readAsDataURL(file);
-        };
 
-        const performAnalysis = async (base64) => {
-            const { remaining } = AIService.checkScanLimit();
-            if (remaining <= 0) {
-                alert("Daily limit reached. Come back tomorrow for fresh awareness!");
-                return;
-            }
+            updateLimitUI();
 
-            const loadingOverlay = document.getElementById('loadingOverlay');
-            loadingOverlay.style.display = 'flex';
-            captureBtn.disabled = true;
+            const processUpload = async (event) => {
+                const file = event.target.files[0];
+                if (!file) return;
 
-            try {
-                const result = await AIService.analyzeFood(base64);
+                const reader = new FileReader();
+                reader.onload = async (e) => {
+                    const base64 = e.target.result;
+                    performAnalysis(base64);
+                };
+                reader.readAsDataURL(file);
+            };
 
-                foodName.textContent = result.name;
-                foodDesc.textContent = result.description;
-                lifestyleNote.textContent = result.lifestyle_note;
-                similarList.innerHTML = result.similar.map(s => `<span class="pill">${s}</span>`).join('');
+            const performAnalysis = async (base64) => {
+                const { remaining } = AIService.checkScanLimit();
+                if (remaining <= 0) {
+                    alert("Daily limit reached. Come back tomorrow for fresh awareness!");
+                    return;
+                }
 
-                resultCard.style.display = 'block';
-                resultCard.scrollIntoView({ behavior: 'smooth' });
+                const loadingOverlay = document.getElementById('loadingOverlay');
+                loadingOverlay.style.display = 'flex';
+                captureBtn.disabled = true;
 
-                AIService.incrementScanCount();
-                updateLimitUI();
-            } catch (error) {
-                alert("Something went wrong with the scan. Please ensure you are connected to the internet and try again.");
-                console.error(error);
-            } finally {
-                captureBtn.disabled = false;
-                loadingOverlay.style.display = 'none';
-                updateLimitUI();
-            }
-        };
+                try {
+                    const result = await AIService.analyzeFood(base64);
 
-        captureBtn.addEventListener('click', () => {
-            if (video.srcObject) {
-                canvas.width = video.videoWidth;
-                canvas.height = video.videoHeight;
-                canvas.getContext('2d').drawImage(video, 0, 0);
-                const base64 = canvas.toDataURL('image/jpeg');
-                performAnalysis(base64);
-            } else {
-                uploadInput.click();
-            }
+                    foodName.textContent = result.name;
+                    foodDesc.textContent = result.description;
+                    lifestyleNote.textContent = result.lifestyle_note;
+                    similarList.innerHTML = result.similar.map(s => `<span class="pill">${s}</span>`).join('');
+
+                    resultCard.style.display = 'block';
+                    resultCard.scrollIntoView({ behavior: 'smooth' });
+
+                    AIService.incrementScanCount();
+                    updateLimitUI();
+                } catch (error) {
+                    alert("Something went wrong with the scan. Please ensure you are connected to the internet and try again.");
+                    console.error(error);
+                } finally {
+                    captureBtn.disabled = false;
+                    loadingOverlay.style.display = 'none';
+                    updateLimitUI();
+                }
+            };
+
+            captureBtn.addEventListener('click', () => {
+                if (video.srcObject && video.readyState === 4) {
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    const base64 = canvas.toDataURL('image/jpeg');
+                    performAnalysis(base64);
+                } else {
+                    uploadInput.click();
+                }
+            });
+
+            uploadBtn.addEventListener('click', () => uploadInput.click());
+            uploadInput.addEventListener('change', processUpload);
         });
-
-        uploadBtn.addEventListener('click', () => uploadInput.click());
-        uploadInput.addEventListener('change', processUpload);
     </script>
     <nav class="mobile-nav">
         <a href="index.html" class="nav-item">

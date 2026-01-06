@@ -10,7 +10,7 @@ const AI_CONFIG = {
     freeLimit: 3
 };
 
-const AIService = {
+window.AIService = {
     checkScanLimit: () => {
         const today = new Date().toDateString();
         const lastScanDate = localStorage.getItem('last_scan_date');
@@ -109,5 +109,3 @@ const AIService = {
         }
     }
 };
-
-export default AIService;
