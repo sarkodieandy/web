@@ -67,6 +67,7 @@ window.AIService = {
                 })
             });
 
+            if (response.status === 401) throw new Error('AI Auth failed');
             if (!response.ok) throw new Error('AI analysis offline');
 
             const data = await response.json();

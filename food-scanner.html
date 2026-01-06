@@ -50,14 +50,15 @@
             <div class="camera-preview" id="cameraPreview">
                 <video id="videoFeed" autoplay playsinline muted
                     style="width: 100%; height: 100%; object-fit: cover;"></video>
+                <img id="imagePreview"
+                    style="display: none; width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; z-index: 5;">
                 <canvas id="captureCanvas" style="display: none;"></canvas>
                 <div class="scanner-overlay"></div>
                 <div class="instruction">Point at your meal or upload a photo</div>
                 <div id="loadingOverlay" class="loading-overlay" style="display: none;">
                     <div class="spinner"></div>
-                    <p>Analyzing with AI...</p>
+                    <p id="loadingStatus">Analyzing with AI...</p>
                 </div>
-                <input type="file" id="imageUpload" accept="image/*" style="display: none;">
             </div>
 
             <div class="scanner-actions">
@@ -287,10 +288,20 @@
                     return;
                 }
 
+                // Immediate feedback: show the preview image
+                const imagePreview = document.getElementById('imagePreview');
+                imagePreview.src = base64;
+                imagePreview.style.display = 'block';
+
                 const loadingOverlay = document.getElementById('loadingOverlay');
+                const loadingStatus = document.getElementById('loadingStatus');
                 loadingOverlay.style.display = 'flex';
+                loadingStatus.textContent = "Analyzing with AI...";
                 captureBtn.disabled = true;
 
+                const startTime = Date.now();
+
+                let analysisError = null;
                 try {
                     const result = await AIService.analyzeFood(base64);
 
@@ -305,12 +316,22 @@
                     AIService.incrementScanCount();
                     updateLimitUI();
                 } catch (error) {
-                    alert("Something went wrong with the scan. Please ensure you are connected to the internet and try again.");
-                    console.error(error);
+                    analysisError = error;
                 } finally {
+                    // Ensure at least 800ms of loading for UX feedback
+                    const elapsed = Date.now() - startTime;
+                    if (elapsed < 800) await new Promise(r => setTimeout(r, 800 - elapsed));
+
                     captureBtn.disabled = false;
                     loadingOverlay.style.display = 'none';
                     updateLimitUI();
+
+                    if (analysisError) {
+                        console.error(analysisError);
+                        let msg = "Something went wrong. Please check your connection.";
+                        if (analysisError.message.includes('Auth')) msg = "AI Authentication Error. Please check your API key.";
+                        alert(msg);
+                    }
                 }
             };
 
