@@ -90,7 +90,35 @@
     statNausea && (statNausea.textContent = nauseaAvg ? nauseaAvg.toFixed(1) : "--");
     statAppetite && (statAppetite.textContent = appetiteAvg ? appetiteAvg.toFixed(1) : "--");
     statWeightAvg && (statWeightAvg.textContent = weightAvg ? `${weightAvg.toFixed(1)} kg` : "--");
-    statCount && (statCount.textContent = last7.length);
+
+    // Calculate Streak
+    const statStreak = document.getElementById("statStreak");
+    if (statStreak) {
+      const sortedDates = [...new Set(entries.map(e => e.date))].sort();
+      let streak = 0;
+      if (sortedDates.length > 0) {
+        const today = new Date().toISOString().split('T')[0];
+        const yesterday = new Date(Date.now() - 86400000).toISOString().split('T')[0];
+        const lastDate = sortedDates[sortedDates.length - 1];
+
+        // Only count streak if latest entry is today or yesterday
+        if (lastDate === today || lastDate === yesterday) {
+          streak = 1;
+          for (let i = sortedDates.length - 2; i >= 0; i--) {
+            const curr = new Date(sortedDates[i]);
+            const next = new Date(sortedDates[i + 1]);
+            const diffTime = Math.abs(next - curr);
+            const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+            if (diffDays === 1) {
+              streak++;
+            } else {
+              break;
+            }
+          }
+        }
+      }
+      statStreak.textContent = `${streak} days`;
+    }
   }
 
   function renderChart(entries) {
@@ -182,7 +210,7 @@
     form.reset();
     // keep date today
     dateInput && (dateInput.value = new Date().toISOString().split("T")[0]);
-    
+
     // Modern success notification
     const notification = document.createElement('div');
     notification.style.cssText = 'position: fixed; top: 100px; right: 20px; background: linear-gradient(135deg, #10b981 0%, #059669 100%); color: #fff; padding: 20px 28px; border-radius: 12px; box-shadow: 0 10px 30px rgba(16, 185, 129, 0.3); z-index: 10000; animation: slideInRight 0.4s ease;';

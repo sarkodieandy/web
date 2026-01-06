@@ -1,18 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Daily GLP-1 Check-in | Track Patterns & Export</title>
-  <meta name="description" content="Daily GLP-1 check-in to log weight, nausea, hydration, protein, and notes. See trends, export data, and share patterns with your care team." />
+  <meta name="description"
+    content="Daily GLP-1 check-in to log weight, nausea, hydration, protein, and notes. See trends, export data, and share patterns with your care team." />
   <link rel="canonical" href="https://glp-1tracker.netlify.app/checkin.html" />
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5462334042904965"
-     crossorigin="anonymous"></script>
+    crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Libre+Baskerville:wght@700&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header class="topbar">
     <div class="shell topbar-row">
@@ -49,20 +54,25 @@
   </header>
 
   <main>
-    <section class="section hero" style="padding: 72px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
+    <section class="section hero"
+      style="padding: 72px 0; background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);">
       <div class="shell">
         <div style="text-align: center; max-width: 800px; margin: 0 auto;">
           <p class="eyebrow" style="color: #10b981;">Track | Observe | Share</p>
           <h1 style="color: #fff; font-size: 3rem; margin: 12px 0;">Daily GLP-1 Check-in</h1>
-          <p class="lede" style="color: #cbd5e0; font-size: 1.25rem;">Log weight, nausea, hydration, protein, and notes in seconds. Spot patterns, export your week, and share with your clinician—without medical advice.</p>
+          <p class="lede" style="color: #cbd5e0; font-size: 1.25rem;">Log weight, nausea, hydration, protein, and notes
+            in seconds. Spot patterns, export your week, and share with your clinician—without medical advice.</p>
           <div class="cta-row" style="justify-content: center; margin-top: 28px;">
-            <a class="cta" href="#checkin-form" style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 16px 32px; font-size: 1.1rem;">Start logging</a>
+            <a class="cta" href="#checkin-form"
+              style="background: linear-gradient(135deg, #10b981 0%, #059669 100%); padding: 16px 32px; font-size: 1.1rem;">Start
+              logging</a>
             <a class="ghost" href="#trends" style="color: #10b981; border-color: #10b981;">See trends</a>
           </div>
         </div>
-        
+
         <!-- Modern Stats Grid -->
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto;">
+        <div
+          style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 48px; max-width: 900px; margin-left: auto; margin-right: auto;">
           <div class="modern-stat-card">
             <div class="stat-icon">💧</div>
             <p class="stat-label">Hydration Avg</p>
@@ -95,17 +105,13 @@
 
         <!-- New Ad Unit - Slot 2634509333 -->
         <div class="ad-container display" style="margin: 30px auto; max-width: 1200px;" aria-label="Advertisement">
-          <ins class="adsbygoogle"
-               style="display:block"
-               data-ad-client="ca-pub-5462334042904965"
-               data-ad-slot="2634509333"
-               data-ad-format="auto"
-               data-full-width-responsive="true"></ins>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+            data-ad-slot="2634509333" data-ad-format="auto" data-full-width-responsive="true"></ins>
           <script>
-               (adsbygoogle = window.adsbygoogle || []).push({});
+            (adsbygoogle = window.adsbygoogle || []).push({});
           </script>
         </div>
-        
+
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px; max-width: 1200px; margin: 0 auto;">
           <!-- Modern Form Card -->
           <div class="modern-card">
@@ -119,64 +125,67 @@
                   <input type="date" id="ciDate" required class="modern-input">
                 </label>
               </div>
-              
+
               <div class="form-row-2">
                 <label class="modern-label">
                   <span class="label-text">⚖️ Weight</span>
                   <div class="input-group-modern">
-                    <input type="number" id="ciWeight" placeholder="e.g., 82" step="0.1" min="30" max="300" class="modern-input">
+                    <input type="number" id="ciWeight" placeholder="e.g., 82" step="0.1" min="30" max="300"
+                      class="modern-input">
                     <select id="ciWeightUnit" class="modern-select">
                       <option value="kg">kg</option>
                       <option value="lbs">lbs</option>
                     </select>
                   </div>
                 </label>
-                
+
                 <label class="modern-label">
                   <span class="label-text">🤢 Nausea (1–5)</span>
-                  <input type="number" id="ciNausea" min="1" max="5" step="1" placeholder="1 = none, 5 = severe" class="modern-input">
+                  <input type="number" id="ciNausea" min="1" max="5" step="1" placeholder="1 = none, 5 = severe"
+                    class="modern-input">
                 </label>
               </div>
-              
+
               <div class="form-row-2">
                 <label class="modern-label">
                   <span class="label-text">💧 Hydration (litres)</span>
-                  <input type="number" id="ciHydration" step="0.1" min="0" max="10" placeholder="e.g., 2.3" class="modern-input">
+                  <input type="number" id="ciHydration" step="0.1" min="0" max="10" placeholder="e.g., 2.3"
+                    class="modern-input">
                 </label>
-                
+
                 <label class="modern-label">
                   <span class="label-text">🥩 Protein (grams)</span>
-                  <input type="number" id="ciProtein" step="1" min="0" max="300" placeholder="e.g., 110" class="modern-input">
+                  <input type="number" id="ciProtein" step="1" min="0" max="300" placeholder="e.g., 110"
+                    class="modern-input">
                 </label>
               </div>
-              
+
               <div class="form-row">
                 <label class="modern-label">
                   <span class="label-text">🍽️ Appetite (1–5)</span>
-                  <input type="number" id="ciAppetite" min="1" max="5" step="1" placeholder="1 = very low, 5 = strong" class="modern-input">
+                  <input type="number" id="ciAppetite" min="1" max="5" step="1" placeholder="1 = very low, 5 = strong"
+                    class="modern-input">
                 </label>
               </div>
-              
+
               <div class="form-row">
                 <label class="modern-label">
                   <span class="label-text">📋 Notes (optional)</span>
-                  <textarea id="ciNotes" rows="3" placeholder="Meals, triggers, timing, symptoms..." class="modern-textarea"></textarea>
+                  <textarea id="ciNotes" rows="3" placeholder="Meals, triggers, timing, symptoms..."
+                    class="modern-textarea"></textarea>
                 </label>
               </div>
 
               <!-- New Fluid Ad Unit - Slot 3055157642 -->
               <div class="ad-container display" style="margin: 30px 0;" aria-label="Advertisement">
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-format="fluid"
-                     data-ad-layout-key="-6e+c9+1y-16+b1"
-                     data-ad-client="ca-pub-5462334042904965"
-                     data-ad-slot="3055157642"></ins>
+                <ins class="adsbygoogle" style="display:block" data-ad-format="fluid"
+                  data-ad-layout-key="-6e+c9+1y-16+b1" data-ad-client="ca-pub-5462334042904965"
+                  data-ad-slot="3055157642"></ins>
                 <script>
-                     (adsbygoogle = window.adsbygoogle || []).push({});
+                  (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
               </div>
-              
+
               <div class="form-actions">
                 <button class="btn-primary" type="submit">
                   <span>💾</span> Save check-in
@@ -190,16 +199,13 @@
 
           <!-- New Autorelaxed Ad Unit - Slot 8816774303 -->
           <div class="ad-container display" style="margin: 30px 0; max-width: 1200px;" aria-label="Advertisement">
-            <ins class="adsbygoogle"
-                 style="display:block"
-                 data-ad-format="autorelaxed"
-                 data-ad-client="ca-pub-5462334042904965"
-                 data-ad-slot="8816774303"></ins>
+            <ins class="adsbygoogle" style="display:block" data-ad-format="autorelaxed"
+              data-ad-client="ca-pub-5462334042904965" data-ad-slot="8816774303"></ins>
             <script>
-                 (adsbygoogle = window.adsbygoogle || []).push({});
+              (adsbygoogle = window.adsbygoogle || []).push({});
             </script>
           </div>
-          
+
           <!-- Modern Chart Card -->
           <div class="modern-card" id="trends">
             <div class="modern-card-header">
@@ -214,8 +220,8 @@
                 <p class="mini-stat-value" id="statWeightAvg">--</p>
               </div>
               <div class="mini-stat">
-                <p class="mini-stat-label">This Week</p>
-                <p class="mini-stat-value" id="statCount">0</p>
+                <p class="mini-stat-label">Current Streak</p>
+                <p class="mini-stat-value" id="statStreak">0</p>
               </div>
               <div class="mini-stat">
                 <p class="mini-stat-label">Appetite</p>
@@ -231,12 +237,8 @@
     <!-- In-Content Ad -->
     <div class="shell">
       <div class="ad-container ad-in-content" aria-label="Advertisement">
-        <ins class="adsbygoogle"
-             style="display:block"
-             data-ad-client="ca-pub-5462334042904965"
-             data-ad-slot="1803793331"
-             data-ad-format="auto"
-             data-full-width-responsive="true"></ins>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965"
+          data-ad-slot="1803793331" data-ad-format="auto" data-full-width-responsive="true"></ins>
       </div>
     </div>
 
@@ -251,7 +253,8 @@
       </div>
     </section>
 
-    <section class="section alt" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 72px 0;">
+    <section class="section alt"
+      style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 100%); padding: 72px 0;">
       <div class="shell">
         <div class="section-head" style="text-align: center; max-width: 700px; margin: 0 auto 48px;">
           <p class="eyebrow">📤 Share-ready</p>
@@ -288,12 +291,8 @@
 
   <!-- Anchor Ad - Mobile Bottom Sticky -->
   <div class="ad-anchor" aria-label="Advertisement">
-    <ins class="adsbygoogle"
-         style="display:block"
-         data-ad-client="ca-pub-5462334042904965"
-         data-ad-slot="1803793331"
-         data-ad-format="auto"
-         data-full-width-responsive="true"></ins>
+    <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5462334042904965" data-ad-slot="1803793331"
+      data-ad-format="auto" data-full-width-responsive="true"></ins>
   </div>
 
   <footer class="footer">
@@ -316,7 +315,8 @@
       </div>
     </div>
     <div class="shell footer-note">
-      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your clinician for personalized guidance.</p>
+      <p class="tiny">Content is for educational purposes only and not personal medical advice. Consult your clinician
+        for personalized guidance.</p>
     </div>
   </footer>
 
@@ -325,7 +325,9 @@
     <div class="cookie-consent-content">
       <div class="cookie-consent-text">
         <h4>🍪 We value your privacy</h4>
-        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#" onclick="return false;">Learn more</a></p>
+        <p>We use cookies and similar technologies to provide essential site functionality, analyze traffic, and show
+          personalized ads. By clicking "Accept", you consent to our use of cookies. <a href="#"
+            onclick="return false;">Learn more</a></p>
       </div>
       <div class="cookie-consent-buttons">
         <button class="cookie-btn cookie-btn-accept" onclick="acceptCookies()">Accept All</button>
@@ -338,5 +340,5 @@
   <script src="app.js" defer></script>
   <script src="checkin.js" defer></script>
 </body>
-</html>
 
+</html>
